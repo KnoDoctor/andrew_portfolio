@@ -10,7 +10,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
-const DotButton = ({ selected, onClick }) => (
+const DotButton = ({ selected, onClick }: any) => (
     <button
         className={
             styles.embla__dot + `${selected ? ` ${styles["is-selected"]}` : ""}`
@@ -20,7 +20,7 @@ const DotButton = ({ selected, onClick }) => (
     />
 );
 
-const HeroBanner = ({ slides }) => {
+const HeroBanner = ({ slides }: any) => {
     console.log(slides);
 
     //Set media query
@@ -44,12 +44,12 @@ const HeroBanner = ({ slides }) => {
     const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
     const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
     const [selectedIndex, setSelectedIndex] = useState(0);
-    const [scrollSnaps, setScrollSnaps] = useState([]);
+    const [scrollSnaps, setScrollSnaps] = useState<any>([]);
 
     const scrollPrev = useCallback(() => embla && embla.scrollPrev(), [embla]);
     const scrollNext = useCallback(() => embla && embla.scrollNext(), [embla]);
     const scrollTo = useCallback(
-        (index) => embla && embla.scrollTo(index),
+        (index: any) => embla && embla.scrollTo(index),
         [embla]
     );
 
@@ -67,7 +67,7 @@ const HeroBanner = ({ slides }) => {
         embla.on("select", onSelect);
     }, [embla, setScrollSnaps, onSelect]);
 
-    const renderContentAlignment = (slide) => {
+    const renderContentAlignment = (slide: any) => {
         if (forceCenterAlignment) {
             return (
                 <div
@@ -84,7 +84,6 @@ const HeroBanner = ({ slides }) => {
                     <Typography
                         variant="h2"
                         component="h2"
-                        Her
                         style={{
                             textTransform: "uppercase",
                             fontSize: "24px",
@@ -97,7 +96,6 @@ const HeroBanner = ({ slides }) => {
                     <Typography
                         variant="h1"
                         component="h3"
-                        Her
                         style={{
                             textTransform: "none",
                             fontSize: "14px",
@@ -142,7 +140,6 @@ const HeroBanner = ({ slides }) => {
                         <Typography
                             variant="h2"
                             component="h2"
-                            Her
                             style={{
                                 textTransform: "uppercase",
                                 fontSize: mobileWidth ? "30px" : "60px",
@@ -155,7 +152,6 @@ const HeroBanner = ({ slides }) => {
                         <Typography
                             variant="h1"
                             component="h3"
-                            Her
                             style={{
                                 textTransform: "none",
                                 fontSize: mobileWidth ? "17px" : "30px",
@@ -210,7 +206,6 @@ const HeroBanner = ({ slides }) => {
                         <Typography
                             variant="h2"
                             component="h2"
-                            Her
                             style={{
                                 textTransform: "uppercase",
                                 fontSize: mobileWidth ? "30px" : "60px",
@@ -223,7 +218,6 @@ const HeroBanner = ({ slides }) => {
                         <Typography
                             variant="h1"
                             component="h3"
-                            Her
                             style={{
                                 textTransform: "none",
                                 fontSize: mobileWidth ? "17px" : "30px",
@@ -323,7 +317,7 @@ const HeroBanner = ({ slides }) => {
         }
     };
 
-    const renderHeroBannerImage = (slide, index) =>
+    const renderHeroBannerImage = (slide: any, index: any) =>
         slide ? (
             <div
                 key={index}
@@ -383,18 +377,13 @@ const HeroBanner = ({ slides }) => {
             <></>
         );
 
-    const renderVideoPlayer = (slide, index) => (
+    const renderVideoPlayer = (slide: any, index: any) => (
         <div
             style={{
                 position: "relative",
                 width: "100%",
                 maxHeight: "100vh",
                 overflow: "hidden",
-                "&:hover": {
-                    "& .video-mute-icon": {
-                        display: "block",
-                    },
-                },
             }}
             className={styles.hero__video__container}
             key={index}
@@ -447,7 +436,7 @@ const HeroBanner = ({ slides }) => {
             <div className={styles.embla}>
                 <div className={styles.embla__viewport} ref={viewportRef}>
                     <div className={styles.embla__container}>
-                        {slides.map((slide, index) => (
+                        {slides.map((slide: any, index: any) => (
                             <div className={styles.embla__slide} key={index}>
                                 <div className={styles.embla__slide__inner}>
                                     {slide.heroBannerType === "video"
@@ -459,7 +448,7 @@ const HeroBanner = ({ slides }) => {
                     </div>
                 </div>
                 <div className={styles.embla__dots}>
-                    {scrollSnaps.map((_, index) => (
+                    {scrollSnaps.map((_: any, index: any) => (
                         <DotButton
                             key={index}
                             selected={index === selectedIndex}
