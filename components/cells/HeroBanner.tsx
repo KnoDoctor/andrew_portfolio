@@ -21,8 +21,6 @@ const DotButton = ({ selected, onClick }: any) => (
 );
 
 const HeroBanner = ({ slides }: any) => {
-    console.log(slides);
-
     //Set media query
     const mobileWidth = useMediaQuery("(max-width:900px)");
     const forceCenterAlignment = useMediaQuery("(max-width:500px)");

@@ -7,7 +7,15 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-export default function PortfolioCard({ project }: any) {
+interface PortfolioCardProps {
+    project: {
+        image: string;
+        name: string;
+        description: string;
+    };
+}
+
+export default function PortfolioCard({ project }: PortfolioCardProps) {
     return (
         <ButtonBase focusRipple onClick={() => console.log("boop")}>
             <Card variant={"outlined"}>
