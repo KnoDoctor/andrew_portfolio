@@ -11,10 +11,11 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import Divider from "@mui/material/Divider";
 import AdbIcon from "@mui/icons-material/Adb";
 import ThreeDRotationIcon from "@mui/icons-material/ThreeDRotation";
 
-const pages = ["Projects", "About Me", "Contact"];
+const pages = ["Portfolio", "About Me", "Contact"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function ResponsiveAppBar() {
@@ -45,14 +46,14 @@ function ResponsiveAppBar() {
             position="fixed"
             sx={{
                 boxShadow: "inset 0px -1px 1px #132f4c",
-                backgroundColor: "rgba(10, 25, 41, 0.85)",
+                backgroundColor: "rgba(0, 0, 0, 0.85)",
                 backdropFilter: "blur(8px)",
             }}
         >
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <ThreeDRotationIcon
-                        sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
+                        sx={{ display: { xs: "none", sm: "flex" }, mr: 1 }}
                     />
                     <Typography
                         variant="h6"
@@ -61,7 +62,7 @@ function ResponsiveAppBar() {
                         href="/"
                         sx={{
                             mr: 2,
-                            display: { xs: "none", md: "flex" },
+                            display: { xs: "none", sm: "flex" },
                             fontFamily: "monospace",
                             fontWeight: 700,
                             letterSpacing: ".3rem",
@@ -71,11 +72,40 @@ function ResponsiveAppBar() {
                     >
                         AB|Designs
                     </Typography>
-
                     <Box
                         sx={{
                             flexGrow: 1,
-                            display: { xs: "flex", md: "none" },
+                            display: { xs: "flex", sm: "none" },
+                            justifyContent: "center",
+                        }}
+                    >
+                        <ThreeDRotationIcon
+                            sx={{ display: { xs: "flex", sm: "none" }, mr: 1 }}
+                        />
+                        <Typography
+                            variant="h5"
+                            noWrap
+                            component="a"
+                            href=""
+                            sx={{
+                                mr: 2,
+                                display: { xs: "flex", sm: "none" },
+                                // flexGrow: 1,
+                                fontFamily: "monospace",
+                                fontWeight: 700,
+                                letterSpacing: ".3rem",
+                                color: "inherit",
+                                textDecoration: "none",
+                            }}
+                        >
+                            AB|Designs
+                        </Typography>
+                    </Box>
+
+                    <Box
+                        sx={{
+                            // flexGrow: 1,
+                            display: { xs: "flex", sm: "none" },
                         }}
                     >
                         <IconButton
@@ -103,7 +133,7 @@ function ResponsiveAppBar() {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{
-                                display: { xs: "block", md: "none" },
+                                display: { xs: "block", sm: "none" },
                             }}
                         >
                             {pages.map((page) => (
@@ -118,31 +148,11 @@ function ResponsiveAppBar() {
                             ))}
                         </Menu>
                     </Box>
-                    <ThreeDRotationIcon
-                        sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
-                    />
-                    <Typography
-                        variant="h5"
-                        noWrap
-                        component="a"
-                        href=""
-                        sx={{
-                            mr: 2,
-                            display: { xs: "flex", md: "none" },
-                            flexGrow: 1,
-                            fontFamily: "monospace",
-                            fontWeight: 700,
-                            letterSpacing: ".3rem",
-                            color: "inherit",
-                            textDecoration: "none",
-                        }}
-                    >
-                        AB|Designs
-                    </Typography>
                     <Box
                         sx={{
                             flexGrow: 1,
-                            display: { xs: "none", md: "flex" },
+                            display: { xs: "none", sm: "flex" },
+                            justifyContent: "right",
                         }}
                     >
                         {pages.map((page) => (

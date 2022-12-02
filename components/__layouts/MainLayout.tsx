@@ -5,6 +5,8 @@ import Head from "next/head";
 // import { useRemoveContact, ContactContext } from '../../context/contact';
 
 import NavBar from "../__navigation/NavBar";
+import ParticleBackground from "./ParticleBackground";
+
 // import TopChipSlider from './TopChipSlider';
 // // import Footer from '../Footer';
 // import BottomNavigation from './BottomNavigation';
@@ -43,12 +45,17 @@ const MainLayout = ({ children }: any) => {
                 />
                 <title>AB Designs</title>
             </Head>
-            <main id="app" data-testid="layout">
+            <main
+                id="app"
+                data-testid="layout"
+                style={{ position: "relative" }}
+            >
                 <NavBar />
                 {/*<TopChipSlider /> */}
                 <div>{children}</div>
                 {/* <Footer /> */}
                 {/* <BottomNavigation /> */}
+                <ParticleBackground />
             </main>
         </>
     );

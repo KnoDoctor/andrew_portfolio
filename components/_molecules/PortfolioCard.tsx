@@ -18,7 +18,7 @@ interface PortfolioCardProps {
 export default function PortfolioCard({ project }: PortfolioCardProps) {
     return (
         <ButtonBase focusRipple onClick={() => console.log("boop")}>
-            <Card variant={"outlined"}>
+            <Card raised>
                 <CardMedia
                     component="img"
                     height="225"

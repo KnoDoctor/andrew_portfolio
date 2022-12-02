@@ -3,8 +3,10 @@ import * as React from "react";
 import Link from "../src/Link";
 import ProTip from "../src/ProTip";
 import Copyright from "../src/Copyright";
-import HeroBanner from "../components/cells/HeroBanner";
 
+import Typography from "@mui/material/Typography";
+
+import HeroBanner from "../components/cells/HeroBanner";
 import Portfolio from "../components/cells/Portfolio";
 import About from "../components/cells/About";
 import Contact from "../components/cells/Contact";
@@ -12,7 +14,7 @@ import Contact from "../components/cells/Contact";
 export default function Home() {
     return (
         <>
-            <HeroBanner
+            {/* <HeroBanner
                 slides={[
                     {
                         heroBannerType: "video",
@@ -53,7 +55,18 @@ export default function Home() {
                         buttonTextColor: "#fff",
                     },
                 ]}
-            />
+            /> */}
+            <div
+                style={{
+                    width: "100%",
+                    height: "100vh",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                }}
+            >
+                <Typography variant="h1">AB | Designs</Typography>
+            </div>
             <Portfolio />
             <About />
             <Contact />

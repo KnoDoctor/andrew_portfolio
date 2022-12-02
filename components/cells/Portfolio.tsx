@@ -45,18 +45,26 @@ const projects = [
 
 const Portfolio = () => {
     return (
-        <Container maxWidth={"xl"}>
+        <Container
+            maxWidth={"xl"}
+            sx={{
+                display: "flex",
+                justifyContent: "center",
+                flexDirection: "column",
+                py: "20vh",
+            }}
+        >
             <Typography
                 variant="h2"
                 component="h3"
-                sx={{ textAlign: "center", my: 5 }}
+                sx={{ textAlign: "center", mb: 5 }}
             >
                 Portfolio
             </Typography>
             <Grid container spacing={4}>
                 {projects.map((project) => {
                     return (
-                        <Grid item xs={4}>
+                        <Grid item xs={12} sm={6} md={4}>
                             <PortfolioCard project={project} />
                         </Grid>
                     );
