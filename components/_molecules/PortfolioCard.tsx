@@ -7,7 +7,10 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
+import { motion } from "framer-motion";
+
 interface PortfolioCardProps {
+    i: number;
     project: {
         image: string;
         name: string;
@@ -15,10 +18,40 @@ interface PortfolioCardProps {
     };
 }
 
-export default function PortfolioCard({ project }: PortfolioCardProps) {
+export default function PortfolioCard({ project, i }: PortfolioCardProps) {
+    const amount = (i + 0.5) / 10;
+
     return (
-        <ButtonBase focusRipple onClick={() => console.log("boop")}>
-            <Card raised>
+        <Card
+            raised
+            component={motion.div}
+            whileHover={
+                {
+                    // scale: 1.01,
+                    // transition: { duration: 0.2 },
+                }
+            }
+            initial={{
+                y: "10vw",
+                opacity: 0,
+            }}
+            // animate={{ y: 0, opacity: 1, transition: { duration: 1 } }}
+            whileInView={{
+                y: 0,
+                opacity: 1,
+                transition: {
+                    type: "spring",
+                    bounce: 0.4,
+                    duration: 1.2,
+                },
+            }}
+            viewport={{ once: true, amount: amount }}
+        >
+            <ButtonBase
+                focusRipple
+                sx={{ display: "flex", flexDirection: "column" }}
+                onClick={() => console.log("boop")}
+            >
                 <CardMedia
                     component="img"
                     height="225"
@@ -36,7 +69,7 @@ export default function PortfolioCard({ project }: PortfolioCardProps) {
                 {/* <CardActions>
                 <Button size="small">Learn More</Button>
             </CardActions> */}
-            </Card>
-        </ButtonBase>
+            </ButtonBase>
+        </Card>
     );
 }

@@ -62,10 +62,10 @@ const Portfolio = () => {
                 Portfolio
             </Typography>
             <Grid container spacing={4}>
-                {projects.map((project) => {
+                {projects.map((project, i) => {
                     return (
                         <Grid item xs={12} sm={6} md={4}>
-                            <PortfolioCard project={project} />
+                            <PortfolioCard project={project} i={i} />
                         </Grid>
                     );
                 })}
