@@ -5,7 +5,6 @@ import Head from "next/head";
 // import { useRemoveContact, ContactContext } from '../../context/contact';
 
 import NavBar from "../__navigation/NavBar";
-import ParticleBackground from "./ParticleBackground";
 
 // import TopChipSlider from './TopChipSlider';
 // // import Footer from '../Footer';
@@ -55,7 +54,6 @@ const MainLayout = ({ children }: any) => {
                 <div>{children}</div>
                 {/* <Footer /> */}
                 {/* <BottomNavigation /> */}
-                <ParticleBackground />
             </main>
         </>
     );

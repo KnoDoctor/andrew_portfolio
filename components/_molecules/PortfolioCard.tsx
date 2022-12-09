@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 interface PortfolioCardProps {
     i: number;
@@ -19,7 +20,8 @@ interface PortfolioCardProps {
 }
 
 export default function PortfolioCard({ project, i }: PortfolioCardProps) {
-    const amount = (i + 0.5) / 10;
+    const amount = (i % 3) / 10;
+    const router = useRouter();
 
     return (
         <Card
@@ -50,7 +52,7 @@ export default function PortfolioCard({ project, i }: PortfolioCardProps) {
             <ButtonBase
                 focusRipple
                 sx={{ display: "flex", flexDirection: "column" }}
-                onClick={() => console.log("boop")}
+                onClick={() => router.push(`/projects/${i}`)}
             >
                 <CardMedia
                     component="img"

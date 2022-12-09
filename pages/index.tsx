@@ -6,6 +6,7 @@ import Copyright from "../src/Copyright";
 
 import Typography from "@mui/material/Typography";
 
+import ParticleBackground from "../components/__layouts/ParticleBackground";
 import HeroBanner from "../components/cells/HeroBanner";
 import Portfolio from "../components/cells/Portfolio";
 import About from "../components/cells/About";
@@ -72,6 +73,8 @@ export default function Home() {
             <Contact />
             <ProTip />
             <Copyright />
+
+            <ParticleBackground />
         </>
     );
 }

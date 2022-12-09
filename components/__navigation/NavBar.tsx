@@ -14,11 +14,15 @@ import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
 import AdbIcon from "@mui/icons-material/Adb";
 import ThreeDRotationIcon from "@mui/icons-material/ThreeDRotation";
+import { useRouter } from "next/router";
+
+import Link from "../_atoms/Link";
 
 const pages = ["Portfolio", "About Me", "Contact"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function ResponsiveAppBar() {
+    const router = useRouter();
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
         null
     );
@@ -45,33 +49,49 @@ function ResponsiveAppBar() {
         <AppBar
             position="fixed"
             sx={{
-                boxShadow: "inset 0px -1px 1px #132f4c",
+                boxShadow: "inset 0px -1px 1px rgb(0, 0, 0)",
                 backgroundColor: "rgba(0, 0, 0, 0.85)",
                 backdropFilter: "blur(8px)",
             }}
         >
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <ThreeDRotationIcon
-                        sx={{ display: { xs: "none", sm: "flex" }, mr: 1 }}
-                    />
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
+                    <Link
                         href="/"
-                        sx={{
-                            mr: 2,
-                            display: { xs: "none", sm: "flex" },
-                            fontFamily: "monospace",
-                            fontWeight: 700,
-                            letterSpacing: ".3rem",
-                            color: "inherit",
-                            textDecoration: "none",
-                        }}
+                        sx={{ textDecoration: "none", color: "#fff" }}
                     >
-                        AB|Designs
-                    </Typography>
+                        <Box
+                            sx={{
+                                display: "flex",
+                                alignItems: "center",
+                            }}
+                        >
+                            <ThreeDRotationIcon
+                                sx={{
+                                    display: { xs: "none", sm: "flex" },
+                                    mr: 1,
+                                }}
+                            />
+                            <Typography
+                                variant="h6"
+                                noWrap
+                                component="p"
+                                // href="/"
+                                sx={{
+                                    mr: 2,
+                                    display: { xs: "none", sm: "flex" },
+                                    fontFamily: "monospace",
+                                    fontWeight: 700,
+                                    letterSpacing: ".3rem",
+                                    color: "inherit",
+                                    textDecoration: "none",
+                                }}
+                            >
+                                AB|Designs
+                            </Typography>
+                        </Box>
+                    </Link>
+
                     <Box
                         sx={{
                             flexGrow: 1,
