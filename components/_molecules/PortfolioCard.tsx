@@ -15,12 +15,12 @@ interface PortfolioCardProps {
     project: {
         image: string;
         name: string;
-        description: string;
+        description?: string;
     };
 }
 
 export default function PortfolioCard({ project, i }: PortfolioCardProps) {
-    const amount = (i % 3) / 10;
+    const amount = ((i + 3) % 3) / 10;
     const router = useRouter();
 
     return (
@@ -56,7 +56,7 @@ export default function PortfolioCard({ project, i }: PortfolioCardProps) {
             >
                 <CardMedia
                     component="img"
-                    height="225"
+                    height="250"
                     image={project.image}
                     alt="green iguana"
                 />

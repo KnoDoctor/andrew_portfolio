@@ -11,6 +11,9 @@ import About from "../../components/cells/About";
 import Image from "next/image";
 import Divider from "@mui/material/Divider";
 
+import { motion } from "framer-motion";
+import SlideIn from "../../components/_atoms/SlideIn";
+
 const Project = () => {
     const router = useRouter();
 
@@ -36,6 +39,7 @@ const Project = () => {
         <>
             <Container sx={{ py: 15 }}>
                 <Box
+                    component={motion.div}
                     sx={{
                         position: "relative",
                         width: "400px",
@@ -43,29 +47,42 @@ const Project = () => {
                         margin: "auto",
                         mb: 5,
                     }}
+                    initial={{
+                        y: 50,
+                        opacity: 0,
+                    }}
+                    animate={{ y: 0, opacity: 1, transition: { duration: 1 } }}
                 >
                     <Image
-                        src="https://picsum.photos/600/800?random=1"
+                        src="/images/beamish-taps/tap_1.jpg"
                         fill={true}
                         alt="test"
-                        style={{ objectFit: "cover" }}
+                        style={{ objectFit: "cover", borderRadius: "25px" }}
                     />
                 </Box>
-                <Typography
-                    variant="h2"
-                    component="h1"
-                    textAlign={"center"}
-                    gutterBottom
-                >
-                    Project {router.query.identifer}
-                </Typography>
-                <Typography variant="h5" component="h2" textAlign={"center"}>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Dolor repellat eum porro, dolores dolorem praesentium modi
-                    quaerat voluptatem neque doloremque omnis asperiores,
-                    molestias, maiores suscipit tenetur ipsam alias esse maxime!
-                </Typography>
-                <Divider sx={{ my: 3 }} />
+                <SlideIn>
+                    <Typography
+                        variant="h2"
+                        component="h1"
+                        textAlign={"center"}
+                        gutterBottom
+                    >
+                        Beamish Beer Taps
+                    </Typography>
+                </SlideIn>
+                <SlideIn>
+                    <Typography
+                        variant="h5"
+                        component="h2"
+                        textAlign={"center"}
+                    >
+                        Blending 3D printing and traditional tap hardware we
+                        created these custom beer taps draw inspiration from the
+                        restaurants beloved history to showcase there house
+                        beers.
+                    </Typography>
+                </SlideIn>
+                {/* <Divider sx={{ my: 3 }} />
                 <Typography variant="h4" component="h3">
                     Contents
                 </Typography>
@@ -88,8 +105,8 @@ const Project = () => {
                     <li>
                         <a href="#conclusion">Conclusion</a>
                     </li>
-                </ul>
-                <Divider sx={{ my: 3 }} />
+                </ul> */}
+                {/* <Divider sx={{ my: 3 }} />
                 <Typography variant="h5" component="h3" id={"about"} mb={3}>
                     About
                 </Typography>
@@ -108,27 +125,39 @@ const Project = () => {
                     Dolor repellat eum porro, dolores dolorem praesentium modi
                     quaerat voluptatem neque doloremque omnis asperiores,
                     molestias, maiores suscipit tenetur ipsam alias esse maxime!
-                </Typography>
-                <Divider sx={{ my: 3 }} />
-                <Typography variant="h5" component="h3" id={"the-goal"} mb={3}>
-                    The Goal
-                </Typography>
-                <Typography variant="body1">I wanted to:</Typography>
-                <ul>
-                    <li>This is a place to list objectives</li>
-                    <li>Another project object could be listed here</li>
-                    <li>
-                        You could even write a slightly longer objective to go
-                        here
-                    </li>
-                </ul>
-                <Typography variant="body1">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Dolor repellat eum porro, dolores dolorem praesentium modi
-                    quaerat voluptatem neque doloremque omnis asperiores,
-                    molestias, maiores suscipit tenetur ipsam alias esse maxime!
-                </Typography>
-                <Divider sx={{ my: 3 }} />
+                </Typography> */}
+                <SlideIn>
+                    <>
+                        <Divider sx={{ my: 3 }} />
+                        <Typography
+                            variant="h5"
+                            component="h3"
+                            id={"the-goal"}
+                            mb={3}
+                        >
+                            Objectives
+                        </Typography>
+                        <Typography variant="body1">
+                            To be successful the project needed to:
+                        </Typography>
+                        <ul>
+                            <li>This is a place to list objectives</li>
+                            <li>Another project object could be listed here</li>
+                            <li>
+                                You could even write a slightly longer objective
+                                to go here
+                            </li>
+                        </ul>
+                        <Typography variant="body1">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing
+                            elit. Dolor repellat eum porro, dolores dolorem
+                            praesentium modi quaerat voluptatem neque doloremque
+                            omnis asperiores, molestias, maiores suscipit
+                            tenetur ipsam alias esse maxime!
+                        </Typography>
+                    </>
+                </SlideIn>
+                {/* <Divider sx={{ my: 3 }} />
                 <Typography
                     variant="h5"
                     component="h3"
@@ -233,180 +262,178 @@ const Project = () => {
                     sit necessitatibus quibusdam, fuga eligendi placeat vero
                     fugiat praesentium cum magni repellat dolorem voluptate
                     facere distinctio animi, repellendus rem tenetur mollitia.
-                </Typography>
-                <Divider sx={{ my: 3 }} />
+                </Typography> */}
+                <SlideIn>
+                    <>
+                        <Divider sx={{ my: 3 }} />
+                        <Typography
+                            variant="h5"
+                            component="h3"
+                            id={"strategy-solution"}
+                            mb={3}
+                        >
+                            Strategy + Solution
+                        </Typography>
+                        <Typography variant="body1" mb={2}>
+                            The primary challenges of this project were ensuring
+                            that the taps were strong enough to stand up to
+                            daily use in the bar. This was resolved by
+                            integrating a threaded metal rod and coupling nut to
+                            the inside of the print to provide a solid core to
+                            the taps.
+                        </Typography>
+                        <Typography variant="body1" mb={2}>
+                            Pulling from the icon mascot of the Beamish House,
+                            the goat brew was given a matching tap which places
+                            the Beamish white goat front and centre. For the
+                            Beamish House brew a model of the Beamish building
+                            was used at the head of the tap. In both cases the
+                            Icon Beamish House Pub text runs down the base of
+                            the tap.
+                        </Typography>
+
+                        <Grid
+                            container
+                            spacing={3}
+                            mb={5}
+                            sx={{ maxWidth: 1000, margin: "0 auto 40px" }}
+                        >
+                            <Grid item xs={6} sx={{ height: 600 }}>
+                                <Box
+                                    sx={{
+                                        position: "relative",
+                                        height: "100%",
+                                    }}
+                                >
+                                    <Image
+                                        src="/images/beamish-taps/tap_1_expanded.jpg"
+                                        fill={true}
+                                        alt="test"
+                                        style={{ objectFit: "cover" }}
+                                    />
+                                </Box>
+                            </Grid>
+                            <Grid item xs={6} sx={{ height: 600 }}>
+                                <Box
+                                    sx={{
+                                        position: "relative",
+                                        height: "100%",
+                                    }}
+                                >
+                                    <Image
+                                        src="/images/beamish-taps/tap_2_expanded.jpg"
+                                        fill={true}
+                                        alt="test"
+                                        style={{ objectFit: "cover" }}
+                                    />
+                                </Box>
+                            </Grid>
+                        </Grid>
+                        <Typography variant="body1" mb={2}>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing
+                            elit. Dolor repellat eum porro, dolores dolorem
+                            praesentium modi quaerat voluptatem neque doloremque
+                            omnis asperiores, molestias, maiores suscipit
+                            tenetur ipsam alias esse maxime! Lorem ipsum dolor
+                            sit amet consectetur adipisicing elit. Id sit
+                            necessitatibus quibusdam, fuga eligendi placeat vero
+                            fugiat praesentium cum magni repellat dolorem
+                            voluptate facere distinctio animi, repellendus rem
+                            tenetur mollitia.
+                        </Typography>
+                    </>
+                </SlideIn>
+                <SlideIn>
+                    <>
+                        <Divider sx={{ my: 3 }} />
+                        <Typography
+                            variant="h5"
+                            component="h3"
+                            id={"final-product"}
+                            mb={3}
+                        >
+                            Final Product
+                        </Typography>
+                        <Typography variant="body1" mb={2}>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing
+                            elit. Dolor repellat eum porro, dolores dolorem
+                            praesentium modi quaerat voluptatem neque doloremque
+                            omnis asperiores, molestias, maiores suscipit
+                            tenetur ipsam alias esse maxime!
+                        </Typography>
+                        <Grid container spacing={3} mb={2}>
+                            <Grid item xs={6} sx={{ height: 400 }}>
+                                <Box
+                                    sx={{
+                                        position: "relative",
+                                        height: "100%",
+                                    }}
+                                >
+                                    <Image
+                                        src="https://picsum.photos/600/800?random=7"
+                                        fill={true}
+                                        alt="test"
+                                        style={{ objectFit: "cover" }}
+                                    />
+                                </Box>
+                            </Grid>
+                            <Grid item xs={6} sx={{ height: 400 }}>
+                                <Box
+                                    sx={{
+                                        position: "relative",
+                                        height: "100%",
+                                    }}
+                                >
+                                    <Image
+                                        src="https://picsum.photos/600/800?random=8"
+                                        fill={true}
+                                        alt="test"
+                                        style={{ objectFit: "cover" }}
+                                    />
+                                </Box>
+                            </Grid>
+                        </Grid>
+                        <Typography variant="body1" mb={2}>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing
+                            elit. Dolor repellat eum porro, dolores dolorem
+                            praesentium modi quaerat voluptatem neque doloremque
+                            omnis asperiores, molestias, maiores suscipit
+                            tenetur ipsam alias esse maxime! Lorem ipsum dolor
+                            sit amet consectetur adipisicing elit. Id sit
+                            necessitatibus quibusdam, fuga eligendi placeat vero
+                            fugiat praesentium cum magni repellat dolorem
+                            voluptate facere distinctio animi, repellendus rem
+                            tenetur mollitia.
+                        </Typography>
+                        <Typography variant="body1" mb={2}>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing
+                            elit. Dolor repellat eum porro, dolores dolorem
+                            praesentium modi quaerat voluptatem neque doloremque
+                            omnis asperiores, molestias, maiores suscipit
+                            tenetur ipsam alias esse maxime! Lorem ipsum dolor
+                            sit amet consectetur adipisicing elit. Id sit
+                            necessitatibus quibusdam, fuga eligendi placeat vero
+                            fugiat praesentium cum magni repellat dolorem
+                            voluptate facere distinctio animi, repellendus rem
+                            tenetur mollitia.
+                        </Typography>
+                    </>
+                </SlideIn>
+                {/* <Divider sx={{ my: 3 }} />
                 <Typography
-                    variant="h5"
-                    component="h3"
-                    id={"strategy-solution"}
-                    mb={3}
-                >
-                    Strategy + Solution
-                </Typography>
-                <Typography variant="body1" mb={2}>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Dolor repellat eum porro, dolores dolorem praesentium modi
-                    quaerat voluptatem neque doloremque omnis asperiores,
-                    molestias, maiores suscipit tenetur ipsam alias esse maxime!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
-                    sit necessitatibus quibusdam, fuga eligendi placeat vero
-                    fugiat praesentium cum magni repellat dolorem voluptate
-                    facere distinctio animi, repellendus rem tenetur mollitia.
-                </Typography>
-                <Typography variant="body1" mb={2}>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Dolor repellat eum porro, dolores dolorem praesentium modi
-                    quaerat voluptatem neque doloremque omnis asperiores,
-                    molestias, maiores suscipit tenetur ipsam alias esse maxime!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
-                    sit necessitatibus quibusdam, fuga eligendi placeat vero
-                    fugiat praesentium cum magni repellat dolorem voluptate
-                    facere distinctio animi, repellendus rem tenetur mollitia.
-                </Typography>
-                <Typography variant="body1" mb={2}>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Dolor repellat eum porro, dolores dolorem praesentium modi
-                    quaerat voluptatem neque doloremque omnis asperiores,
-                    molestias, maiores suscipit tenetur ipsam alias esse maxime!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
-                    sit necessitatibus quibusdam, fuga eligendi placeat vero
-                    fugiat praesentium cum magni repellat dolorem voluptate
-                    facere distinctio animi, repellendus rem tenetur mollitia.
-                </Typography>
-                <Grid container spacing={3} mb={2}>
-                    <Grid item xs={6} sx={{ height: 400 }}>
-                        <Box
-                            sx={{
-                                position: "relative",
-                                height: "100%",
-                            }}
-                        >
-                            <Image
-                                src="https://picsum.photos/600/800?random=5"
-                                fill={true}
-                                alt="test"
-                                style={{ objectFit: "cover" }}
-                            />
-                        </Box>
-                    </Grid>
-                    <Grid item xs={6} sx={{ height: 400 }}>
-                        <Box
-                            sx={{
-                                position: "relative",
-                                height: "100%",
-                            }}
-                        >
-                            <Image
-                                src="https://picsum.photos/600/800?random=6"
-                                fill={true}
-                                alt="test"
-                                style={{ objectFit: "cover" }}
-                            />
-                        </Box>
-                    </Grid>
-                </Grid>
-                <Typography variant="body1" mb={2}>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Dolor repellat eum porro, dolores dolorem praesentium modi
-                    quaerat voluptatem neque doloremque omnis asperiores,
-                    molestias, maiores suscipit tenetur ipsam alias esse maxime!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
-                    sit necessitatibus quibusdam, fuga eligendi placeat vero
-                    fugiat praesentium cum magni repellat dolorem voluptate
-                    facere distinctio animi, repellendus rem tenetur mollitia.
-                </Typography>
-                <Typography variant="body1" mb={2}>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Dolor repellat eum porro, dolores dolorem praesentium modi
-                    quaerat voluptatem neque doloremque omnis asperiores,
-                    molestias, maiores suscipit tenetur ipsam alias esse maxime!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
-                    sit necessitatibus quibusdam, fuga eligendi placeat vero
-                    fugiat praesentium cum magni repellat dolorem voluptate
-                    facere distinctio animi, repellendus rem tenetur mollitia.
-                </Typography>
-                <Divider sx={{ my: 3 }} />
-                <Typography
-                    variant="h5"
-                    component="h3"
-                    id={"final-product"}
-                    mb={3}
-                >
-                    Final Product
-                </Typography>
-                <Typography variant="body1" mb={2}>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Dolor repellat eum porro, dolores dolorem praesentium modi
-                    quaerat voluptatem neque doloremque omnis asperiores,
-                    molestias, maiores suscipit tenetur ipsam alias esse maxime!
-                </Typography>
-                <Grid container spacing={3} mb={2}>
-                    <Grid item xs={6} sx={{ height: 400 }}>
-                        <Box
-                            sx={{
-                                position: "relative",
-                                height: "100%",
-                            }}
-                        >
-                            <Image
-                                src="https://picsum.photos/600/800?random=7"
-                                fill={true}
-                                alt="test"
-                                style={{ objectFit: "cover" }}
-                            />
-                        </Box>
-                    </Grid>
-                    <Grid item xs={6} sx={{ height: 400 }}>
-                        <Box
-                            sx={{
-                                position: "relative",
-                                height: "100%",
-                            }}
-                        >
-                            <Image
-                                src="https://picsum.photos/600/800?random=8"
-                                fill={true}
-                                alt="test"
-                                style={{ objectFit: "cover" }}
-                            />
-                        </Box>
-                    </Grid>
-                </Grid>
-                <Typography variant="body1" mb={2}>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Dolor repellat eum porro, dolores dolorem praesentium modi
-                    quaerat voluptatem neque doloremque omnis asperiores,
-                    molestias, maiores suscipit tenetur ipsam alias esse maxime!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
-                    sit necessitatibus quibusdam, fuga eligendi placeat vero
-                    fugiat praesentium cum magni repellat dolorem voluptate
-                    facere distinctio animi, repellendus rem tenetur mollitia.
-                </Typography>
-                <Typography variant="body1" mb={2}>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Dolor repellat eum porro, dolores dolorem praesentium modi
-                    quaerat voluptatem neque doloremque omnis asperiores,
-                    molestias, maiores suscipit tenetur ipsam alias esse maxime!
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
-                    sit necessitatibus quibusdam, fuga eligendi placeat vero
-                    fugiat praesentium cum magni repellat dolorem voluptate
-                    facere distinctio animi, repellendus rem tenetur mollitia.
-                </Typography>
-                <Divider sx={{ my: 3 }} />
-                <Typography
-                    variant="h5"
+                variant="h5"
                     component="h3"
                     id={"conclusion"}
                     mb={3}
-                >
+                    >
                     Conclusion
-                </Typography>
-                <Typography variant="body1" mb={2}>
+                    </Typography>
+                    <Typography variant="body1" mb={2}>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                     Dolor repellat eum porro, dolores dolorem praesentium modi
                     quaerat voluptatem neque doloremque omnis asperiores,
                     molestias, maiores suscipit tenetur ipsam alias esse maxime!
-                </Typography>
+                </Typography> */}
             </Container>
         </>
     );

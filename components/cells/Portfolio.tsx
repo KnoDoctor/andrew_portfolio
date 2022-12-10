@@ -6,10 +6,10 @@ import PortfolioCard from "../_molecules/PortfolioCard";
 
 const projects = [
     {
-        name: "Sign One",
+        name: "Beamish Beer Taps",
         description:
-            "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
-        image: "https://images.unsplash.com/photo-1563520239648-a24e51d4b570?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80",
+            "Custom beer taps draw inspiration from the restaurants beloved history to showcase there house beers.",
+        image: "/images/beamish-taps/tap_1.jpg",
     },
     {
         name: "Cookie Cutter",
