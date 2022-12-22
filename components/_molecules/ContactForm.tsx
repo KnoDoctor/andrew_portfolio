@@ -118,7 +118,7 @@ export default function ComposedTextField() {
             autoComplete="off"
             onSubmit={handleSubmit}
         >
-            <Grid item xs={6}>
+            <Grid item xs={12} md={6}>
                 <FormControl error={isFirstNameError} fullWidth>
                     <InputLabel htmlFor="component-error">
                         First Name*
@@ -138,7 +138,7 @@ export default function ComposedTextField() {
                     )}
                 </FormControl>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} md={6}>
                 <FormControl error={isLastNameError} fullWidth>
                     <InputLabel htmlFor="component-error">
                         Last Name*
@@ -158,7 +158,7 @@ export default function ComposedTextField() {
                     )}
                 </FormControl>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} md={6}>
                 <FormControl error={isEmailError} fullWidth>
                     <InputLabel htmlFor="component-error">Email</InputLabel>
                     <OutlinedInput
@@ -176,7 +176,7 @@ export default function ComposedTextField() {
                     )}
                 </FormControl>
             </Grid>
-            <Grid item xs={6}>
+            <Grid item xs={12} md={6}>
                 <FormControl error={isPhoneNumberError} fullWidth>
                     <InputLabel htmlFor="component-error">
                         Phone Number
