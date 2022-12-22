@@ -37,12 +37,12 @@ const Project = () => {
 
     return (
         <Container
-            maxWidth={"xl"}
+            maxWidth={"md"}
             sx={{
                 display: "flex",
                 justifyContent: "center",
                 flexDirection: "column",
-                py: { xs: 12, md: 0 },
+                py: { xs: 12, md: 15 },
             }}
         >
             <SlideIn>
