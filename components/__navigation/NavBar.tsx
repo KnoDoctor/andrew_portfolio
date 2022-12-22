@@ -95,7 +95,6 @@ function ResponsiveAppBar() {
                             </Typography>
                         </Box>
                     </Link>
-
                     <Box
                         sx={{
                             flexGrow: 1,
@@ -103,29 +102,40 @@ function ResponsiveAppBar() {
                             justifyContent: "center",
                         }}
                     >
-                        <ThreeDRotationIcon
-                            sx={{ display: { xs: "flex", sm: "none" }, mr: 1 }}
-                        />
-                        <Typography
-                            variant="h5"
-                            noWrap
-                            component="a"
-                            href=""
+                        <Link
+                            href="/"
                             sx={{
-                                mr: 2,
-                                display: { xs: "flex", sm: "none" },
-                                // flexGrow: 1,
-                                fontFamily: "monospace",
-                                fontWeight: 700,
-                                letterSpacing: ".3rem",
-                                color: "inherit",
                                 textDecoration: "none",
+                                color: "#fff",
+                                display: { xs: "flex", sm: "none" },
                             }}
                         >
-                            AB|Designs
-                        </Typography>
+                            <ThreeDRotationIcon
+                                sx={{
+                                    display: { xs: "flex", sm: "none" },
+                                    mr: 1,
+                                }}
+                            />
+                            <Typography
+                                variant="h5"
+                                noWrap
+                                component="a"
+                                href=""
+                                sx={{
+                                    mr: 2,
+                                    display: { xs: "flex", sm: "none" },
+                                    // flexGrow: 1,
+                                    fontFamily: "monospace",
+                                    fontWeight: 700,
+                                    letterSpacing: ".3rem",
+                                    color: "inherit",
+                                    textDecoration: "none",
+                                }}
+                            >
+                                AB|Designs
+                            </Typography>
+                        </Link>
                     </Box>
-
                     <Box
                         sx={{
                             // flexGrow: 1,
@@ -163,7 +173,7 @@ function ResponsiveAppBar() {
                             {pages.map((page) => (
                                 <MenuItem
                                     key={page.anchor}
-                                    onClick={handleCloseNavMenu}
+                                    onClick={() => router.push(page.anchor)}
                                 >
                                     <Typography textAlign="center">
                                         {page.name}

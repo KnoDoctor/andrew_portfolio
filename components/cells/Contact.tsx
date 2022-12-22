@@ -29,13 +29,12 @@ const Contact = () => {
                     >
                         Contact
                     </Typography>
-                    <Card sx={{ width: "100%", py: 5, height: "50vh" }} raised>
-                        <Grid container sx={{ height: "100%" }}>
-                            <Grid item xs={5}>
+                    <Card sx={{ width: "100%", py: 5 }} raised>
+                        <Grid container spacing={5} sx={{ px: 5 }}>
+                            <Grid item xs={12} md={5}>
                                 <Box
                                     sx={{
-                                        width: "80%",
-                                        height: "100%",
+                                        height: { xs: "400px", md: "100%" },
                                         position: "relative",
                                         margin: "auto",
                                     }}
@@ -48,7 +47,7 @@ const Contact = () => {
                                     />
                                 </Box>
                             </Grid>
-                            <Grid item xs={7} sx={{ pr: 5 }}>
+                            <Grid item xs={12} md={7}>
                                 <ContactForm />
                             </Grid>
                         </Grid>

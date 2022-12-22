@@ -15,7 +15,8 @@ const About = () => {
                 display: "flex",
                 justifyContent: "center",
                 flexDirection: "column",
-                py: "20vh",
+                py: { xs: 12, md: 0 },
+                height: { xs: null, md: "100vh" },
             }}
         >
             <SlideIn>
@@ -28,12 +29,12 @@ const About = () => {
                         About Me
                     </Typography>
                     <Card sx={{ width: "100%", py: 5 }} raised>
-                        <Grid container>
-                            <Grid item xs={5}>
+                        <Grid container spacing={5} sx={{ px: 5 }}>
+                            <Grid item xs={12} md={5}>
                                 <Box
                                     sx={{
-                                        width: "80%",
-                                        height: "100%",
+                                        width: "100%",
+                                        height: { xs: "400px", md: "100%" },
                                         position: "relative",
                                         margin: "auto",
                                     }}
@@ -46,7 +47,7 @@ const About = () => {
                                     />
                                 </Box>
                             </Grid>
-                            <Grid item xs={7} sx={{ pr: 5 }}>
+                            <Grid item xs={12} md={7}>
                                 <Typography
                                     variant="body1"
                                     sx={{ textAlign: "justify", mb: 2 }}

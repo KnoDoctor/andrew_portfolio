@@ -5,7 +5,7 @@ const ParticlesBg = dynamic(() => import("particles-bg"), {
 });
 
 const ParticleBackground = () => {
-    return <ParticlesBg type="cobweb" num={150} bg={true} />;
+    return <ParticlesBg type="cobweb" num={50} bg={true} />;
 };
 
 export default ParticleBackground;

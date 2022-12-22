@@ -73,13 +73,20 @@ export default function Home() {
                 }}
             >
                 <SlideIn>
-                    <Typography variant="h1" mb={10} textAlign="center">
+                    <Typography
+                        variant="h1"
+                        sx={{
+                            fontSize: { xs: "3.5rem", sm: "4rem", md: "6rem" },
+                        }}
+                        mb={10}
+                        textAlign="center"
+                    >
                         AB | Designs
                     </Typography>
                 </SlideIn>
                 <SlideIn>
                     <Grid container spacing={4}>
-                        <Grid item xs={12} sm={6} md={4}>
+                        <Grid item xs={12} md={4}>
                             <HomepageActionCard
                                 label="Projects"
                                 anchor="/projects"
@@ -90,7 +97,7 @@ export default function Home() {
                                 i={1}
                             />
                         </Grid>
-                        <Grid item xs={12} sm={6} md={4}>
+                        <Grid item xs={12} md={4}>
                             <HomepageActionCard
                                 label="About Me"
                                 anchor="/about"
@@ -101,7 +108,7 @@ export default function Home() {
                                 i={2}
                             />
                         </Grid>
-                        <Grid item xs={12} sm={6} md={4}>
+                        <Grid item xs={12} md={4}>
                             <HomepageActionCard
                                 label="Contact"
                                 anchor="/contact"

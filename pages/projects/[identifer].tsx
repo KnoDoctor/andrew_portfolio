@@ -42,7 +42,7 @@ const Project = () => {
                     <Box
                         sx={{
                             position: "relative",
-                            width: "400px",
+                            width: { xs: "100%", md: "400px" },
                             height: "300px",
                             margin: "auto",
                             mb: 5,
@@ -294,7 +294,7 @@ const Project = () => {
                             mb={5}
                             sx={{ maxWidth: 1000, margin: "0 auto 40px" }}
                         >
-                            <Grid item xs={6} sx={{ height: 600 }}>
+                            <Grid item xs={12} md={6} sx={{ height: 600 }}>
                                 <Box
                                     sx={{
                                         position: "relative",
@@ -309,7 +309,7 @@ const Project = () => {
                                     />
                                 </Box>
                             </Grid>
-                            <Grid item xs={6} sx={{ height: 600 }}>
+                            <Grid item xs={12} md={6} sx={{ height: 600 }}>
                                 <Box
                                     sx={{
                                         position: "relative",
@@ -358,7 +358,7 @@ const Project = () => {
                             tenetur ipsam alias esse maxime!
                         </Typography>
                         <Grid container spacing={3} mb={2}>
-                            <Grid item xs={6} sx={{ height: 400 }}>
+                            <Grid item xs={12} md={6} sx={{ height: 400 }}>
                                 <Box
                                     sx={{
                                         position: "relative",
@@ -373,7 +373,7 @@ const Project = () => {
                                     />
                                 </Box>
                             </Grid>
-                            <Grid item xs={6} sx={{ height: 400 }}>
+                            <Grid item xs={12} md={6} sx={{ height: 400 }}>
                                 <Box
                                     sx={{
                                         position: "relative",
