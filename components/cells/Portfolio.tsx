@@ -63,7 +63,7 @@ const Portfolio = () => {
                         component="h3"
                         sx={{ textAlign: "center", mb: 5 }}
                     >
-                        Portfolio
+                        Projects
                     </Typography>
                     <Grid container spacing={4}>
                         {projects.map((project, i) => {
