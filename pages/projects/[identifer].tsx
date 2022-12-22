@@ -38,29 +38,25 @@ const Project = () => {
     return (
         <>
             <Container sx={{ py: 15 }}>
-                <Box
-                    component={motion.div}
-                    sx={{
-                        position: "relative",
-                        width: "400px",
-                        height: "300px",
-                        margin: "auto",
-                        mb: 5,
-                    }}
-                    initial={{
-                        y: 50,
-                        opacity: 0,
-                    }}
-                    animate={{ y: 0, opacity: 1, transition: { duration: 1 } }}
-                >
-                    <Image
-                        src="/images/beamish-taps/tap_1.jpg"
-                        fill={true}
-                        alt="test"
-                        style={{ objectFit: "cover", borderRadius: "25px" }}
-                    />
-                </Box>
                 <SlideIn>
+                    <Box
+                        sx={{
+                            position: "relative",
+                            width: "400px",
+                            height: "300px",
+                            margin: "auto",
+                            mb: 5,
+                        }}
+                    >
+                        <Image
+                            src="/images/beamish-taps/tap_1.jpg"
+                            fill={true}
+                            alt="test"
+                            style={{ objectFit: "cover", borderRadius: "25px" }}
+                        />
+                    </Box>
+                </SlideIn>
+                <SlideIn delaySlideIn={0.1}>
                     <Typography
                         variant="h2"
                         component="h1"
@@ -70,7 +66,7 @@ const Project = () => {
                         Beamish Beer Taps
                     </Typography>
                 </SlideIn>
-                <SlideIn>
+                <SlideIn delaySlideIn={0.2}>
                     <Typography
                         variant="h5"
                         component="h2"
@@ -126,7 +122,7 @@ const Project = () => {
                     quaerat voluptatem neque doloremque omnis asperiores,
                     molestias, maiores suscipit tenetur ipsam alias esse maxime!
                 </Typography> */}
-                <SlideIn>
+                <SlideIn delaySlideIn={0.3}>
                     <>
                         <Divider sx={{ my: 3 }} />
                         <Typography
@@ -263,7 +259,7 @@ const Project = () => {
                     fugiat praesentium cum magni repellat dolorem voluptate
                     facere distinctio animi, repellendus rem tenetur mollitia.
                 </Typography> */}
-                <SlideIn>
+                <SlideIn delaySlideIn={0.4}>
                     <>
                         <Divider sx={{ my: 3 }} />
                         <Typography
@@ -343,7 +339,7 @@ const Project = () => {
                         </Typography>
                     </>
                 </SlideIn>
-                <SlideIn>
+                <SlideIn delaySlideIn={0.5}>
                     <>
                         <Divider sx={{ my: 3 }} />
                         <Typography

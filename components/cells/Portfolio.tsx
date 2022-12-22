@@ -1,6 +1,7 @@
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import SlideIn from "../_atoms/SlideIn";
 
 import PortfolioCard from "../_molecules/PortfolioCard";
 
@@ -51,25 +52,30 @@ const Portfolio = () => {
                 display: "flex",
                 justifyContent: "center",
                 flexDirection: "column",
-                py: "20vh",
+                // py: "20vh",
+                height: "100vh",
             }}
         >
-            <Typography
-                variant="h2"
-                component="h3"
-                sx={{ textAlign: "center", mb: 5 }}
-            >
-                Portfolio
-            </Typography>
-            <Grid container spacing={4}>
-                {projects.map((project, i) => {
-                    return (
-                        <Grid item xs={12} sm={6} md={4}>
-                            <PortfolioCard project={project} i={i} />
-                        </Grid>
-                    );
-                })}
-            </Grid>
+            <SlideIn>
+                <>
+                    <Typography
+                        variant="h2"
+                        component="h3"
+                        sx={{ textAlign: "center", mb: 5 }}
+                    >
+                        Portfolio
+                    </Typography>
+                    <Grid container spacing={4}>
+                        {projects.map((project, i) => {
+                            return (
+                                <Grid item xs={12} sm={6} md={4}>
+                                    <PortfolioCard project={project} i={i} />
+                                </Grid>
+                            );
+                        })}
+                    </Grid>
+                </>
+            </SlideIn>
         </Container>
     );
 };

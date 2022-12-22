@@ -10,8 +10,10 @@ import Typography from "@mui/material/Typography";
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 
-interface PortfolioCardProps {
+interface HomepageActionCardProps {
     i: number;
+    label: string;
+    anchor: string;
     project: {
         image: string;
         name: string;
@@ -19,8 +21,13 @@ interface PortfolioCardProps {
     };
 }
 
-export default function PortfolioCard({ project, i }: PortfolioCardProps) {
-    const fadeIndDelay = i * 0.08;
+export default function HomepageActionCard({
+    label,
+    anchor,
+    project,
+    i,
+}: HomepageActionCardProps) {
+    const fadeIndDelay = i * 0.1;
     const router = useRouter();
 
     return (
@@ -34,14 +41,14 @@ export default function PortfolioCard({ project, i }: PortfolioCardProps) {
             //     }
             // }
             initial={{
-                y: 50,
+                y: 20,
                 opacity: 0,
             }}
             animate={{
                 y: 0,
                 opacity: 1,
                 transition: {
-                    duration: 0.7,
+                    duration: 1,
                     delay: fadeIndDelay,
                     type: "spring",
                     bounce: 0.3,
@@ -60,18 +67,16 @@ export default function PortfolioCard({ project, i }: PortfolioCardProps) {
         >
             <ButtonBase
                 focusRipple
-                sx={{ display: "flex", flexDirection: "column" }}
-                onClick={() => router.push(`/projects/${i}`)}
+                sx={{ display: "flex", flexDirection: "column", width: "100%" }}
+                onClick={() => router.push(anchor)}
             >
-                <CardMedia
-                    component="img"
-                    height="250"
-                    image={project.image}
-                    alt="green iguana"
-                />
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        {project.name}
+                    <Typography
+                        gutterBottom
+                        variant="h5"
+                        sx={{ textAlign: "center" }}
+                    >
+                        {label}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                         {project.description}

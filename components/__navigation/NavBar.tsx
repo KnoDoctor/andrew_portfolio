@@ -18,7 +18,11 @@ import { useRouter } from "next/router";
 
 import Link from "../_atoms/Link";
 
-const pages = ["Portfolio", "About Me", "Contact"];
+const pages = [
+    { name: "Projects", anchor: "/projects" },
+    { name: "About Me", anchor: "/about" },
+    { name: "Contact", anchor: "/contact" },
+];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function ResponsiveAppBar() {
@@ -158,11 +162,11 @@ function ResponsiveAppBar() {
                         >
                             {pages.map((page) => (
                                 <MenuItem
-                                    key={page}
+                                    key={page.anchor}
                                     onClick={handleCloseNavMenu}
                                 >
                                     <Typography textAlign="center">
-                                        {page}
+                                        {page.name}
                                     </Typography>
                                 </MenuItem>
                             ))}
@@ -177,14 +181,14 @@ function ResponsiveAppBar() {
                     >
                         {pages.map((page) => (
                             <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
+                                key={page.anchor}
+                                onClick={() => router.push(page.anchor)}
                                 sx={{
                                     color: "white",
                                     display: "block",
                                 }}
                             >
-                                {page}
+                                {page.name}
                             </Button>
                         ))}
                     </Box>
