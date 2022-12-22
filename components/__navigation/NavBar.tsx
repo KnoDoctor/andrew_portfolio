@@ -163,7 +163,10 @@ function ResponsiveAppBar() {
                             {pages.map((page) => (
                                 <MenuItem
                                     key={page.anchor}
-                                    onClick={() => router.push(page.anchor)}
+                                    onClick={() => {
+                                        handleCloseNavMenu();
+                                        router.push(page.anchor);
+                                    }}
                                 >
                                     <Typography textAlign="center">
                                         {page.name}
