@@ -288,11 +288,7 @@ const Project = () => {
                         House Pub text runs down the base of the tap.
                     </Typography>
 
-                    <Grid
-                        container
-                        spacing={3}
-                        sx={{ maxWidth: 1000, margin: "0 auto 40px" }}
-                    >
+                    <Grid container spacing={3}>
                         <Grid item xs={12} md={6} sx={{ height: 600 }}>
                             <Box
                                 sx={{
