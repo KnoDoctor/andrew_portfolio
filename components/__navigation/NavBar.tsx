@@ -30,23 +30,13 @@ function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
         null
     );
-    const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-        null
-    );
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElNav(event.currentTarget);
     };
-    const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorElUser(event.currentTarget);
-    };
 
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
-    };
-
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
     };
 
     return (
@@ -95,19 +85,21 @@ function ResponsiveAppBar() {
                             </Typography>
                         </Box>
                     </Link>
-                    <Box
+                    <Link
+                        href="/"
                         sx={{
+                            textDecoration: "none",
+                            color: "#fff",
                             flexGrow: 1,
                             display: { xs: "flex", sm: "none" },
                             justifyContent: "center",
                         }}
                     >
-                        <Link
-                            href="/"
+                        <Box
                             sx={{
-                                textDecoration: "none",
-                                color: "#fff",
+                                flexGrow: 1,
                                 display: { xs: "flex", sm: "none" },
+                                justifyContent: "center",
                             }}
                         >
                             <ThreeDRotationIcon
@@ -119,8 +111,6 @@ function ResponsiveAppBar() {
                             <Typography
                                 variant="h5"
                                 noWrap
-                                component="a"
-                                href=""
                                 sx={{
                                     mr: 2,
                                     display: { xs: "flex", sm: "none" },
@@ -134,8 +124,8 @@ function ResponsiveAppBar() {
                             >
                                 AB|Designs
                             </Typography>
-                        </Link>
-                    </Box>
+                        </Box>
+                    </Link>
                     <Box
                         sx={{
                             // flexGrow: 1,
