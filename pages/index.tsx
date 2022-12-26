@@ -6,6 +6,7 @@ import Copyright from "../src/Copyright";
 
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 
 import ParticleBackground from "../components/__layouts/ParticleBackground";
 import HeroBanner from "../components/cells/HeroBanner";
@@ -15,6 +16,7 @@ import Contact from "../components/cells/Contact";
 import HomepageActionCard from "../components/_molecules/HomepageActionCard";
 import PortfolioCard from "../components/_molecules/PortfolioCard";
 import SlideIn from "../components/_atoms/SlideIn";
+import Logo from "../components/_atoms/Logo";
 
 export default function Home() {
     return (
@@ -73,16 +75,15 @@ export default function Home() {
                 }}
             >
                 <SlideIn>
-                    <Typography
-                        variant="h1"
+                    <Box
                         sx={{
-                            fontSize: { xs: "3.5rem", sm: "4rem", md: "6rem" },
+                            mb: { xs: 5, md: 10 },
+                            display: "flex",
+                            justifyContent: "center",
                         }}
-                        mb={10}
-                        textAlign="center"
                     >
-                        AB | Designs
-                    </Typography>
+                        <Logo />
+                    </Box>
                 </SlideIn>
                 <SlideIn>
                     <Grid container spacing={4}>

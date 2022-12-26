@@ -81,7 +81,7 @@ function ResponsiveAppBar() {
                                     textDecoration: "none",
                                 }}
                             >
-                                AB|Designs
+                                ab|DESIGNS
                             </Typography>
                         </Box>
                     </Link>
@@ -122,7 +122,7 @@ function ResponsiveAppBar() {
                                     textDecoration: "none",
                                 }}
                             >
-                                AB|Designs
+                                ab|Designs
                             </Typography>
                         </Box>
                     </Link>
