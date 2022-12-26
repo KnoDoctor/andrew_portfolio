@@ -57,16 +57,10 @@ function ResponsiveAppBar() {
                     >
                         <Box
                             sx={{
-                                display: "flex",
+                                display: { xs: "none", sm: "flex" },
                                 alignItems: "center",
                             }}
                         >
-                            {/* <ThreeDRotationIcon
-                                sx={{
-                                    display: { xs: "none", sm: "flex" },
-                                    mr: 1,
-                                }}
-                            /> */}
                             <Typography
                                 variant="h6"
                                 noWrap
@@ -84,25 +78,7 @@ function ResponsiveAppBar() {
                             >
                                 ab |
                             </Typography>
-                            {/* <ExtruderLogo />
-                            <Typography
-                                variant="h6"
-                                noWrap
-                                component="p"
-                                // href="/"
-                                sx={{
-                                    mr: 2,
-                                    display: { xs: "none", sm: "flex" },
-                                    // fontFamily: "roboto",
-                                    fontWeight: 400,
-                                    // letterSpacing: ".3rem",
-                                    color: "inherit",
-                                    textDecoration: "none",
-                                    fontSize: "36px",
-                                }}
-                            >
-                                DESIGNS
-                            </Typography> */}
+
                             <Typography
                                 variant="h6"
                                 noWrap
@@ -156,29 +132,62 @@ function ResponsiveAppBar() {
                                 flexGrow: 1,
                                 display: { xs: "flex", sm: "none" },
                                 justifyContent: "center",
+                                alignItems: "center",
                             }}
                         >
-                            <ThreeDRotationIcon
+                            <Typography
+                                variant="h6"
+                                noWrap
+                                component="p"
+                                // href="/"
                                 sx={{
                                     display: { xs: "flex", sm: "none" },
                                     mr: 1,
+                                    fontFamily: "'Arimo', sans-serif",
+                                    fontWeight: 100,
+                                    color: "inherit",
+                                    textDecoration: "none",
+                                    fontSize: "28px",
                                 }}
-                            />
+                            >
+                                ab |
+                            </Typography>
+
                             <Typography
-                                variant="h5"
+                                variant="h6"
                                 noWrap
+                                component="p"
+                                // href="/"
+                                sx={{
+                                    display: { xs: "flex", sm: "none" },
+                                    mt: "4px",
+                                    fontWeight: 400,
+                                    // letterSpacing: ".3rem",
+                                    color: "inherit",
+                                    textDecoration: "none",
+                                    fontSize: "18px",
+                                }}
+                            >
+                                DES
+                            </Typography>
+                            <ExtruderLogo />
+                            <Typography
+                                variant="h6"
+                                noWrap
+                                component="p"
+                                // href="/"
                                 sx={{
                                     mr: 2,
                                     display: { xs: "flex", sm: "none" },
-                                    // flexGrow: 1,
-                                    fontFamily: "monospace",
-                                    fontWeight: 700,
-                                    letterSpacing: ".3rem",
+                                    mt: "4px",
+                                    fontWeight: 400,
+                                    // letterSpacing: ".3rem",
                                     color: "inherit",
                                     textDecoration: "none",
+                                    fontSize: "18px",
                                 }}
                             >
-                                ab|Designs
+                                GNS
                             </Typography>
                         </Box>
                     </Link>
