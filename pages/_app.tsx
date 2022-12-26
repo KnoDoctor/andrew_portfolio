@@ -28,6 +28,12 @@ export default function MyApp(props: MyAppProps) {
                     name="viewport"
                     content="initial-scale=1, width=device-width"
                 />
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" />
+                <style>
+                    @import
+                    url('https://fonts.googleapis.com/css2?family=Arimo&display=swap');
+                </style>
             </Head>
             <ThemeProvider theme={theme}>
                 {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}

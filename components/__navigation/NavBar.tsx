@@ -17,6 +17,7 @@ import ThreeDRotationIcon from "@mui/icons-material/ThreeDRotation";
 import { useRouter } from "next/router";
 
 import Link from "../_atoms/Link";
+import ExtruderLogo from "../_atoms/ExtruderLogo";
 
 const pages = [
     { name: "Projects", anchor: "/projects" },
@@ -60,12 +61,30 @@ function ResponsiveAppBar() {
                                 alignItems: "center",
                             }}
                         >
-                            <ThreeDRotationIcon
+                            {/* <ThreeDRotationIcon
                                 sx={{
                                     display: { xs: "none", sm: "flex" },
                                     mr: 1,
                                 }}
-                            />
+                            /> */}
+                            <Typography
+                                variant="h6"
+                                noWrap
+                                component="p"
+                                // href="/"
+                                sx={{
+                                    display: { xs: "none", sm: "flex" },
+                                    mr: 1,
+                                    fontFamily: "'Arimo', sans-serif",
+                                    fontWeight: 100,
+                                    color: "inherit",
+                                    textDecoration: "none",
+                                    fontSize: "28px",
+                                }}
+                            >
+                                ab |
+                            </Typography>
+                            {/* <ExtruderLogo />
                             <Typography
                                 variant="h6"
                                 noWrap
@@ -74,14 +93,51 @@ function ResponsiveAppBar() {
                                 sx={{
                                     mr: 2,
                                     display: { xs: "none", sm: "flex" },
-                                    fontFamily: "monospace",
-                                    fontWeight: 700,
-                                    letterSpacing: ".3rem",
+                                    // fontFamily: "roboto",
+                                    fontWeight: 400,
+                                    // letterSpacing: ".3rem",
                                     color: "inherit",
                                     textDecoration: "none",
+                                    fontSize: "36px",
                                 }}
                             >
-                                ab|DESIGNS
+                                DESIGNS
+                            </Typography> */}
+                            <Typography
+                                variant="h6"
+                                noWrap
+                                component="p"
+                                // href="/"
+                                sx={{
+                                    display: { xs: "none", sm: "flex" },
+                                    mt: "4px",
+                                    fontWeight: 400,
+                                    // letterSpacing: ".3rem",
+                                    color: "inherit",
+                                    textDecoration: "none",
+                                    fontSize: "18px",
+                                }}
+                            >
+                                DES
+                            </Typography>
+                            <ExtruderLogo />
+                            <Typography
+                                variant="h6"
+                                noWrap
+                                component="p"
+                                // href="/"
+                                sx={{
+                                    mr: 2,
+                                    display: { xs: "none", sm: "flex" },
+                                    mt: "4px",
+                                    fontWeight: 400,
+                                    // letterSpacing: ".3rem",
+                                    color: "inherit",
+                                    textDecoration: "none",
+                                    fontSize: "18px",
+                                }}
+                            >
+                                GNS
                             </Typography>
                         </Box>
                     </Link>
