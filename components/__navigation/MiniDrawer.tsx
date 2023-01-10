@@ -143,13 +143,19 @@ export default function MiniDrawer({ children }: any) {
 				</Box>
 			)}
 			<Drawer variant="permanent" anchor={isXs ? "right" : "left"} open={isDrawerOpen}>
-				<DrawerHeader sx={{ bgcolor: "primary.main" }}>
-					<IconButton
+				<DrawerHeader
+					sx={{
+						boxShadow: "inset 0px -1px 1px rgb(0, 0, 0)",
+						backgroundColor: "rgba(0, 0, 0, 0)",
+						backdropFilter: "blur(8px)",
+					}}
+				>
+					{/* <IconButton
 						sx={{ color: "#fff", padding: 0 }}
 						onClick={() => handleDrawerOpen(isDrawerOpen)}
 					>
 						<MenuIcon />
-					</IconButton>
+					</IconButton> */}
 				</DrawerHeader>
 
 				<List>

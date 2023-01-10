@@ -1,18 +1,21 @@
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import MuiLink from "@mui/material/Link";
+import Link from "../components/_atoms/Link";
 import { Box } from "@mui/material";
 
 export default function Copyright() {
-    return (
-        <Box sx={{ position: "absolute", bottom: "2vh" }}>
-            <Typography variant="body2" color="text.secondary" align="center">
-                {"Copyright © "}
-                <MuiLink color="inherit" href="https://mui.com/">
-                    Your Website
-                </MuiLink>{" "}
-                {new Date().getFullYear()}.
-            </Typography>
-        </Box>
-    );
+	return (
+		<Box sx={{ position: "absolute", bottom: "2vh" }}>
+			<Typography variant="body2" color="text.secondary" align="center">
+				{"Copyright © "}
+				ab | DESIGNS {new Date().getFullYear()}
+			</Typography>
+			<Typography variant="body2" color="text.secondary" align="center">
+				<Link color="inherit" href="/admin">
+					Admin
+				</Link>
+			</Typography>
+		</Box>
+	);
 }

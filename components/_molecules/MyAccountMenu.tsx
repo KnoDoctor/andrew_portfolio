@@ -19,6 +19,8 @@ import AccountBoxOutlinedIcon from "@mui/icons-material/AccountBoxOutlined";
 import BadgeOutlinedIcon from "@mui/icons-material/BadgeOutlined";
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 
+import { signIn, signOut, useSession } from "next-auth/react";
+
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 import Link from "../../src/Link";
@@ -159,14 +161,20 @@ export default function MyAccountMenu({ avatar }: any) {
 						Guide
 					</MenuItem>
 				</Link>
-				<Link href={`/api/auth/logout`} sx={{ textDecoration: "none" }}>
-					<MenuItem>
-						<ListItemIcon>
-							<Logout fontSize="medium" />
-						</ListItemIcon>
-						Logout
-					</MenuItem>
-				</Link>
+
+				<MenuItem
+					onClick={(e) => {
+						e.preventDefault();
+						signOut({
+							callbackUrl: `/`,
+						});
+					}}
+				>
+					<ListItemIcon>
+						<Logout fontSize="medium" />
+					</ListItemIcon>
+					Logout
+				</MenuItem>
 			</Menu>
 		</React.Fragment>
 	);

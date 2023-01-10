@@ -19,6 +19,7 @@ import AdbIcon from "@mui/icons-material/Adb";
 import LoginIcon from "@mui/icons-material/Login";
 import Badge from "@mui/material/Badge";
 import SearchIcon from "@mui/icons-material/Search";
+import ExtruderLogo from "../_atoms/ExtruderLogo";
 
 import { signIn, signOut, useSession } from "next-auth/react";
 
@@ -27,89 +28,157 @@ import Link from "../../src/Link";
 import MyAccountMenu from "../_molecules/MyAccountMenu";
 
 const pages = [
-    { label: "Home", destination: "/" },
-    { label: "Client", destination: "/client" },
-    { label: "Server", destination: "/server" },
-    { label: "Protected", destination: "/protected" },
-    { label: "API", destination: "/api-example" },
-    { label: "Admin", destination: "/admin" },
-    { label: "Me", destination: "/me" },
+	{ label: "Home", destination: "/" },
+	{ label: "Client", destination: "/client" },
+	{ label: "Server", destination: "/server" },
+	{ label: "Protected", destination: "/protected" },
+	{ label: "API", destination: "/api-example" },
+	{ label: "Admin", destination: "/admin" },
+	{ label: "Me", destination: "/me" },
 ];
 const settings = ["Profile", "Account", "Dashboard"];
 
 const AppBar = styled(MuiAppBar, {
-    shouldForwardProp: (prop) => prop !== "open",
+	shouldForwardProp: (prop) => prop !== "open",
 })<MuiAppBarProps>(({ theme }) => ({
-    zIndex: theme.zIndex.drawer + 1,
-    // marginLeft: "64px",
-    // width: `calc(100% - ${64}px)`,
-    [theme.breakpoints.up("sm")]: {
-        marginLeft: "64px",
-        width: `calc(100% - ${64}px)`,
-    },
-    // transition: theme.transitions.create(["width", "margin"], {
-    //     easing: theme.transitions.easing.sharp,
-    //     duration: theme.transitions.duration.enteringScreen,
-    // }),
+	zIndex: theme.zIndex.drawer + 1,
+	// marginLeft: "64px",
+	// width: `calc(100% - ${64}px)`,
+	[theme.breakpoints.up("sm")]: {
+		marginLeft: "64px",
+		width: `calc(100% - ${64}px)`,
+	},
+	// transition: theme.transitions.create(["width", "margin"], {
+	//     easing: theme.transitions.easing.sharp,
+	//     duration: theme.transitions.duration.enteringScreen,
+	// }),
 }));
 
 const menuItems = [
-    { label: "How To Travel", anchor: "/" },
-    { label: "Ways To Go", anchor: "/" },
-    { label: "Places To Go", anchor: "/" },
-    { label: "Find A Trip", anchor: "/" },
-    { label: "Who We Are", anchor: "/" },
-    // { label: 'Travel Journal', anchor: '/' }
+	{ label: "How To Travel", anchor: "/" },
+	{ label: "Ways To Go", anchor: "/" },
+	{ label: "Places To Go", anchor: "/" },
+	{ label: "Find A Trip", anchor: "/" },
+	{ label: "Who We Are", anchor: "/" },
+	// { label: 'Travel Journal', anchor: '/' }
 ];
 const ctas = [
-    { label: "Start Planning", anchor: "/" },
-    { label: "Join Cru", anchor: "/" },
-    { label: "Contact Us", anchor: "/" },
+	{ label: "Start Planning", anchor: "/" },
+	{ label: "Join Cru", anchor: "/" },
+	{ label: "Contact Us", anchor: "/" },
 ];
 
 interface TopNavBarProps {
-    isXs: boolean;
-    isDrawerOpen: boolean;
-    handleDrawerOpen(isDrawerOpen: boolean): any;
+	isXs: boolean;
+	isDrawerOpen: boolean;
+	handleDrawerOpen(isDrawerOpen: boolean): any;
 }
 
-const TopNavBar = ({
-    isXs,
-    isDrawerOpen,
-    handleDrawerOpen,
-}: TopNavBarProps) => {
-    const { data: session, status } = useSession();
-    const loading = status === "loading";
-    const theme = useTheme();
+const TopNavBar = ({ isXs, isDrawerOpen, handleDrawerOpen }: TopNavBarProps) => {
+	const { data: session, status } = useSession();
+	const loading = status === "loading";
+	const theme = useTheme();
 
-    return (
-        <>
-            <CssBaseline />
-            <AppBar position="fixed" elevation={0}>
-                <Container maxWidth={false}>
-                    <Toolbar disableGutters>
-                        <Box
-                            sx={{
-                                minHeight: "64px",
-                                display: "flex",
-                                alignItems: "center",
-                            }}
-                        >
-                            <Link href="/" sx={{ display: "flex" }}>
-                                <img
-                                    src="/logo.svg"
-                                    width="125px"
-                                    height="auto"
-                                />
-                            </Link>
-                        </Box>
-                        <Box
-                            sx={{
-                                flexGrow: 1,
-                                //	display: { xs: "flex", md: "none" },
-                            }}
-                        >
-                            {/* <IconButton
+	return (
+		<>
+			<CssBaseline />
+			<AppBar
+				position="fixed"
+				elevation={0}
+				sx={{
+					boxShadow: "inset 0px -1px 1px rgb(0, 0, 0)",
+					backgroundColor: "rgba(0, 0, 0, 0.85)",
+					backdropFilter: "blur(8px)",
+					marginLeft: "0 !important",
+					width: "100% !important",
+				}}
+			>
+				<Container maxWidth={false} sx={{ paddingLeft: "20px !important" }}>
+					<Toolbar disableGutters>
+						<Box
+							sx={{
+								minHeight: "64px",
+								display: "flex",
+								alignItems: "center",
+							}}
+						>
+							<IconButton
+								sx={{ color: "#fff", padding: 0, mr: "30px" }}
+								onClick={() => handleDrawerOpen(isDrawerOpen)}
+							>
+								<MenuIcon />
+							</IconButton>
+							<Link href="/" sx={{ textDecoration: "none", color: "#fff" }}>
+								<Box
+									sx={{
+										display: { xs: "none", sm: "flex" },
+										alignItems: "center",
+									}}
+								>
+									<Typography
+										variant="h6"
+										noWrap
+										component="p"
+										// href="/"
+										sx={{
+											display: { xs: "none", sm: "flex" },
+											mr: 1,
+											fontFamily: "'Arimo', sans-serif",
+											fontWeight: 100,
+											color: "inherit",
+											textDecoration: "none",
+											fontSize: "28px",
+										}}
+									>
+										ab |
+									</Typography>
+
+									<Typography
+										variant="h6"
+										noWrap
+										component="p"
+										// href="/"
+										sx={{
+											display: { xs: "none", sm: "flex" },
+											mt: "4px",
+											fontWeight: 400,
+											// letterSpacing: ".3rem",
+											color: "inherit",
+											textDecoration: "none",
+											fontSize: "18px",
+										}}
+									>
+										DES
+									</Typography>
+									<ExtruderLogo />
+									<Typography
+										variant="h6"
+										noWrap
+										component="p"
+										// href="/"
+										sx={{
+											mr: 2,
+											display: { xs: "none", sm: "flex" },
+											mt: "4px",
+											fontWeight: 400,
+											// letterSpacing: ".3rem",
+											color: "inherit",
+											textDecoration: "none",
+											fontSize: "18px",
+										}}
+									>
+										GNS
+									</Typography>
+								</Box>
+							</Link>
+						</Box>
+						<Box
+							sx={{
+								flexGrow: 1,
+								//	display: { xs: "flex", md: "none" },
+							}}
+						>
+							{/* <IconButton
 								size="large"
 								aria-label="account of current user"
 								aria-controls="menu-appbar"
@@ -152,56 +221,56 @@ const TopNavBar = ({
 									</Link>
 								))}
 							</Menu> */}
-                        </Box>
-                        <IconButton
-                            edge="start"
-                            size="large"
-                            color="inherit"
-                            aria-label="open drawer"
-                            onClick={() => handleDrawerOpen(isDrawerOpen)}
-                            sx={{
-                                display: { xs: "none" },
-                            }}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <IconButton
-                            size="large"
-                            aria-label="show 17 new notifications"
-                            color="inherit"
-                        >
-                            <Badge color="secondary">
-                                <SearchIcon />
-                            </Badge>
-                        </IconButton>
-                        {!loading && (
-                            <>
-                                {!session && (
-                                    <IconButton
-                                        href={`/api/auth/signin`}
-                                        size="large"
-                                        aria-label="show 17 new notifications"
-                                        color="inherit"
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            signIn();
-                                        }}
-                                    >
-                                        <LoginIcon />
-                                    </IconButton>
-                                )}
+						</Box>
+						<IconButton
+							edge="start"
+							size="large"
+							color="inherit"
+							aria-label="open drawer"
+							onClick={() => handleDrawerOpen(isDrawerOpen)}
+							sx={{
+								display: { xs: "none" },
+							}}
+						>
+							<MenuIcon />
+						</IconButton>
+						<IconButton
+							size="large"
+							aria-label="show 17 new notifications"
+							color="inherit"
+						>
+							<Badge color="secondary">
+								<SearchIcon />
+							</Badge>
+						</IconButton>
+						{!loading && (
+							<>
+								{!session && (
+									<IconButton
+										href={`/api/auth/signin`}
+										size="large"
+										aria-label="show 17 new notifications"
+										color="inherit"
+										onClick={(e) => {
+											e.preventDefault();
+											signIn();
+										}}
+									>
+										<LoginIcon />
+									</IconButton>
+								)}
 
-                                {session?.user && (
-                                    <MyAccountMenu
-                                        avatar={{
-                                            alt: session.user.name,
-                                            src: session.user.image,
-                                        }}
-                                    />
-                                )}
-                            </>
-                        )}
-                        {/* {!user ? (
+								{session?.user && (
+									<MyAccountMenu
+										avatar={{
+											alt: session.user.name,
+											src: session.user.image,
+										}}
+									/>
+								)}
+							</>
+						)}
+						{/* {!user ? (
 							<>
 								<IconButton
 									href="/api/auth/login"
@@ -217,17 +286,17 @@ const TopNavBar = ({
 						) : (
 							<MyAccountMenu avatar={{ alt: user.name, src: user.picture }} />
 						)} */}
-                    </Toolbar>
-                </Container>
-            </AppBar>
-            {/* <SwipeableDrawer
+					</Toolbar>
+				</Container>
+			</AppBar>
+			{/* <SwipeableDrawer
 				menuItems={menuItems}
 				ctas={ctas}
 				isOpen={isDrawerOpen}
 				open={handleDrawerOpen}
 				close={handleDrawerClose}
 			/> */}
-        </>
-    );
+		</>
+	);
 };
 export default TopNavBar;

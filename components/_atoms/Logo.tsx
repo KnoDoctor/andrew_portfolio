@@ -1,11 +1,9 @@
-import React from "react";
-
 const Logo = () => {
     return (
         <svg
             width="100%"
             height="100%"
-            style={{ maxWidth: 540 }}
+            style={{ maxWidth: 475 }}
             viewBox="0 0 539 500"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
