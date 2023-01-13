@@ -1,4 +1,4 @@
-import ProjectsListOrganism from "../../../../components/organisms/ProjectsListOrganism";
+import ProjectsListOrganism from "../../../../components/organisms/projects/ProjectsListOrganism";
 
 const Projects = () => {
 	return <ProjectsListOrganism />;

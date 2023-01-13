@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
 
-import ProfileCard from "../../_molecules/PersonProfileCard";
+import ProfileCard from "../../_molecules/people/PersonProfileCard";
 const PersonPersonalInformation = ({ person }: any) => {
 	return (
 		<Grid container>

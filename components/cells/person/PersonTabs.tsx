@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import PersonPersonalInformation from "./PersonPersonalInformation";
-import PersonProfileCard from "../../_molecules/PersonProfileCard";
+import PersonProfileCard from "../../_molecules/people/PersonProfileCard";
 import PersonTravellerProfile from "./PersonTravellerProfile";
 import PersonTravelPreferences from "./PersonTravelPreferences";
 

@@ -8,7 +8,7 @@ import CallIcon from "@mui/icons-material/Call";
 import EmailIcon from "@mui/icons-material/Email";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
-import Link from "../_atoms/Link";
+import Link from "../../_atoms/Link";
 
 interface ProjectCardProps {
 	projectName?: string;

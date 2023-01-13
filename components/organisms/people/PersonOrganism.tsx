@@ -4,12 +4,12 @@ import { useRouter } from "next/router";
 
 import { Grid, Card, Button } from "@mui/material";
 
-import Breadcrumbs from "../_molecules/Breadcrumbs";
-import PersonTabs from "../cells/person/PersonTabs";
+import Breadcrumbs from "../../_molecules/Breadcrumbs";
+import PersonTabs from "../../cells/person/PersonTabs";
 
-import { returnCurrentModule } from "../../utils/helperFunctions";
+import { returnCurrentModule } from "../../../utils/helperFunctions";
 
-import usePerson from "../../hooks/people/usePerson";
+import usePerson from "../../../hooks/people/usePerson";
 
 const PersonOrganism = () => {
 	const router = useRouter();

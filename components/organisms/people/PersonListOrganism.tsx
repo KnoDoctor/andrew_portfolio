@@ -5,21 +5,20 @@ import { Card, Grid } from "@mui/material";
 
 import ButtonBase from "@mui/material/ButtonBase";
 
-import Link from "../../src/Link";
-import Breadcrumbs from "../_molecules/Breadcrumbs";
+import Link from "../../../src/Link";
+import Breadcrumbs from "../../_molecules/Breadcrumbs";
 
-import ProjectCreatationOrganism from "./ProjectCreatationOrganism";
-import ProjectCard from "../_molecules/ProjectCard";
+import PersonCreatationOrganism from "./PersonCreatationOrganism";
 
-import { returnCurrentModule } from "../../utils/helperFunctions";
+import { returnCurrentModule } from "../../../utils/helperFunctions";
+import usePeople from "../../../hooks/people/usePeople";
+import PersonProfileCard from "../../_molecules/people/PersonProfileCard";
 
-import useProjects from "../../hooks/projects/useProjects";
-
-const ProjectsListOrganism = () => {
-	const projects = useProjects();
+const PersonListOrganism = () => {
+	const people = usePeople();
 	const router = useRouter();
 
-	if (projects.isLoading) {
+	if (people.isLoading) {
 		return <div>Loading</div>;
 	}
 
@@ -31,24 +30,24 @@ const ProjectsListOrganism = () => {
 						label: returnCurrentModule(router),
 						anchor: `/admin/${returnCurrentModule(router)}`,
 					},
-					{ label: "Projects", anchor: null },
+					{ label: "People", anchor: null },
 				]}
 				actions={[
 					{
-						label: "Add New Project",
-						component: <ProjectCreatationOrganism />,
+						label: "Add New Person",
+						component: <PersonCreatationOrganism />,
 					},
 				]}
 			/>
 			<Card sx={{ p: 2, my: 2 }}>
 				<Grid container spacing={3}>
-					{projects.data.data.map((project: any) => (
+					{people.data.data.map((person: any) => (
 						<Grid item xs={12} sm={6} md={3}>
-							<ProjectCard
-								projectName={project.project_name}
-								projectDescription={project.project_description}
-								viewProductUrl={`/admin/${returnCurrentModule(router)}/projects/${
-									project.project_id
+							<PersonProfileCard
+								firstname={person.first_name}
+								lastname={person.last_name}
+								viewProfileUrl={`/admin/${returnCurrentModule(router)}/people/${
+									person.person_id
 								}`}
 							/>
 							{/* <Link
@@ -75,4 +74,4 @@ const ProjectsListOrganism = () => {
 	);
 };
 
-export default ProjectsListOrganism;
+export default PersonListOrganism;

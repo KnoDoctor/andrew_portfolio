@@ -8,7 +8,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { Box, TextField } from "@mui/material";
 
-import usePeople from "../../hooks/people/usePeople";
+import usePeople from "../../../hooks/people/usePeople";
 
 const PersonCreatationOrganism = ({ handleClose }: any) => {
 	const people = usePeople();

@@ -8,7 +8,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { Box, TextField } from "@mui/material";
 
-import useProjects from "../../hooks/projects/useProjects";
+import useProjects from "../../../hooks/projects/useProjects";
 
 const ProjectCreatationOrganism = ({ handleClose }: any) => {
 	const projects = useProjects();
