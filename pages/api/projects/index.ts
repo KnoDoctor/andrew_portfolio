@@ -36,7 +36,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
 
 	async function createProject() {
 		try {
-			const { project_name, project_description, email } = req.body;
+			const { project_name, project_data, email } = req.body;
 
 			if (!project_name) {
 				return res.status(400).json({
@@ -44,7 +44,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
 					error: "Could not create project, name parameter is missing.",
 				});
 			}
-			if (!project_description) {
+			if (!project_data) {
 				return res.status(400).json({
 					success: false,
 					error: "Could not create project, description parameter is missing.",
@@ -61,7 +61,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
 				data: {
 					project_id: generateGuid(),
 					project_name,
-					project_description,
+					project_data,
 				},
 			});
 

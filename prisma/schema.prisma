@@ -80,7 +80,7 @@ model people {
 }
 
 model projects {
-  project_id          String @id @db.Uuid
-  project_name        String
-  project_description String
+  project_id   String @id @db.Uuid
+  project_name String
+  project_data String
 }

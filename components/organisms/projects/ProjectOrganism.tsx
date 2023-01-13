@@ -5,11 +5,10 @@ import { useRouter } from "next/router";
 import { Grid, Card, Button } from "@mui/material";
 
 import Breadcrumbs from "../../_molecules/Breadcrumbs";
-import PersonTabs from "../../cells/person/PersonTabs";
+import ProjectEditor from "../../cells/projects/ProjectEditor";
 
 import { returnCurrentModule } from "../../../utils/helperFunctions";
 
-import usePerson from "../../../hooks/people/usePerson";
 import useProject from "../../../hooks/projects/useProject";
 
 const ProjectOrganism = () => {
@@ -45,7 +44,7 @@ const ProjectOrganism = () => {
 						anchor: `/admin/${returnCurrentModule(router)}/projects`,
 					},
 					{
-						label: `${project.data.data.project_name} ${project.data.data.project_description}`,
+						label: `${project.data.data.project_name} ${project.data.data.project_data}`,
 						anchor: null,
 					},
 				]}
@@ -54,16 +53,7 @@ const ProjectOrganism = () => {
 			<Card sx={{ p: 2, my: 2 }}>
 				<Grid container spacing={3}>
 					<Grid item xs={12}>
-						{/* <PersonTabs person={person} /> */}
-
-						<Button
-							variant="outlined"
-							onClick={() => {
-								router.back();
-							}}
-						>
-							Back
-						</Button>
+						<ProjectEditor project={project} />
 					</Grid>
 				</Grid>
 			</Card>
