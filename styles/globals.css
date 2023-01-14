@@ -4,6 +4,7 @@
 
 .ck-content {
 	border: 1px solid #ccced1 !important;
+	min-height: 450px;
 }
 .ck-content:focus {
 	border: 1px solid rgb(0, 110, 255) !important;

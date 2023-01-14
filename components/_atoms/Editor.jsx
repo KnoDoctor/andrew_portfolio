@@ -3,7 +3,7 @@ import { CKEditor } from "@ckeditor/ckeditor5-react";
 // import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import DecoupledEditor from "@ckeditor/ckeditor5-build-decoupled-document";
 
-function Editor({ data }) {
+function Editor({ data, setUpdatedData }) {
 	let [loaded, setLoaded] = useState(false);
 
 	useEffect(() => {
@@ -30,6 +30,7 @@ function Editor({ data }) {
 				onChange={(event, editor) => {
 					// do something when editor's content changed
 					const data = editor.getData();
+					setUpdatedData(data);
 					console.log({ event, editor, data });
 				}}
 				onBlur={(event, editor) => {

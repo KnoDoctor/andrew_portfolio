@@ -6,10 +6,11 @@ const Editor = dynamic(() => import("../../_atoms/Editor"), {
 
 interface ProjectEditorProps {
 	project: any;
+	setUpdatedProjectData: any;
 }
 
-const ProjectEditor = ({ project }: ProjectEditorProps) => {
-	return <Editor data={project.data.data.project_data} />;
+const ProjectEditor = ({ project, setUpdatedProjectData }: ProjectEditorProps) => {
+	return <Editor data={project.data.data.project_data} setUpdatedData={setUpdatedProjectData} />;
 };
 
 export default ProjectEditor;
