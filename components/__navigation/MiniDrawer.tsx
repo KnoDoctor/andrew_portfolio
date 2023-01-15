@@ -132,7 +132,9 @@ export default function MiniDrawer({ children }: any) {
                 </Toolbar>
             </AppBar> */}
 			{isXs && (
-				<Box sx={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
+				<Box
+					sx={{ height: "100vh", display: "flex", flexDirection: "column", flexGrow: 1 }}
+				>
 					<DrawerHeader />
 					<Container
 						maxWidth={false}
@@ -226,7 +228,9 @@ export default function MiniDrawer({ children }: any) {
 				</List>
 			</Drawer>
 			{!isXs && (
-				<Box sx={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
+				<Box
+					sx={{ height: "100vh", display: "flex", flexDirection: "column", flexGrow: 1 }}
+				>
 					<DrawerHeader />
 					<Container
 						maxWidth={false}
