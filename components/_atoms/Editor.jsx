@@ -14,6 +14,21 @@ function Editor({ data, setUpdatedData, setHasContentBeenEdited }) {
 	if (loaded) {
 		return (
 			<CKEditor
+				config={{
+					simpleUpload: {
+						// The URL that the images are uploaded to.
+						uploadUrl: "/api/upload",
+
+						// // Enable the XMLHttpRequest.withCredentials property.
+						// withCredentials: true,
+
+						// // Headers sent along with the XMLHttpRequest to the upload server.
+						// headers: {
+						// 	"X-CSRF-TOKEN": "CSRF-Token",
+						// 	Authorization: "Bearer <JSON Web Token>",
+						// },
+					},
+				}}
 				editor={CustomEditor}
 				data={data}
 				onReady={(editor) => {
