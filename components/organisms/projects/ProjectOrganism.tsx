@@ -69,6 +69,8 @@ const ProjectOrganism = () => {
 
 	const [projectName, setProjectName] = useState<string | null>(null);
 	const [updatedProjectData, setUpdatedProjectData] = useState<string | null>(null);
+	const [updatedHeroImage, setUpdatedHeroImage] = useState<string | null>(null);
+	const [updatedIsPublished, setUpdatedIsPublished] = useState<string | null>(null);
 
 	const [updatedProject, setUpdatedProject] = useState<{} | null>(null);
 
@@ -82,14 +84,18 @@ const ProjectOrganism = () => {
 	useEffect(() => {
 		setProjectName(project?.data?.data?.project_name);
 		setUpdatedProjectData(project?.data?.data?.project_data);
+		setUpdatedHeroImage(project?.data?.data?.project_hero_image);
+		setUpdatedIsPublished(project?.data?.data?.is_published);
 	}, [project.data]);
 
 	useEffect(() => {
 		setUpdatedProject({
 			project_name: projectName,
 			project_data: updatedProjectData,
+			project_hero_image: updatedHeroImage,
+			is_published: updatedIsPublished,
 		});
-	}, [projectName, updatedProjectData]);
+	}, [projectName, updatedProjectData, updatedHeroImage, updatedIsPublished]);
 
 	console.log("UPDATED PROJECT", updatedProject);
 
@@ -143,7 +149,11 @@ const ProjectOrganism = () => {
 						</Box>
 					</Grid>
 					<Grid item xs={3}>
-						<ProjectSidebar projectName={project.data.data.project_name} />
+						<ProjectSidebar
+							projectHeroImage={updatedHeroImage}
+							setHasContentBeenEdited={setHasContentBeenEdited}
+							setUpdatedHeroImage={setUpdatedHeroImage}
+						/>
 						<Button
 							variant="contained"
 							disabled={!hasContentBeenEdited}
