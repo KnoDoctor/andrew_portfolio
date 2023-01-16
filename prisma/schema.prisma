@@ -13,15 +13,14 @@ model Account {
   type              String
   provider          String
   providerAccountId String  @map("provider_account_id")
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
+  refresh_token     String?
+  access_token      String?
   expires_at        Int?
   token_type        String?
   scope             String?
-  id_token          String? @db.Text
+  id_token          String?
   session_state     String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
   @@map("accounts")
@@ -69,8 +68,8 @@ model users_roles {
   users_roles_id String @id @db.Uuid
   user_id        String
   role_id        String @db.Uuid
-  user           User   @relation(fields: [user_id], references: [id])
   role           roles  @relation(fields: [role_id], references: [role_id])
+  user           User   @relation(fields: [user_id], references: [id])
 }
 
 model people {
@@ -80,7 +79,9 @@ model people {
 }
 
 model projects {
-  project_id   String @id @db.Uuid
-  project_name String
-  project_data String
+  project_id         String  @id @db.Uuid
+  project_name       String
+  project_data       String?
+  project_hero_image String?
+  is_published       Boolean @default(false)
 }

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { CldImage, CldUploadButton } from "next-cloudinary";
 
 export default function PrivatePage(props) {
 	const [image, setImage] = useState(null);
@@ -26,6 +27,18 @@ export default function PrivatePage(props) {
 	return (
 		<div>
 			<div>
+				<CldUploadButton
+					onUpload={function (error, result, widget) {
+						console.log(result);
+					}}
+					uploadPreset="kavzrzu2"
+				/>
+				<CldImage
+					width="960"
+					height="600"
+					src="v1673808821/cld-sample-5.jpg"
+					sizes="100vw"
+				/>
 				<img src={createObjectURL} />
 				<h4>Select Image</h4>
 				<input type="file" name="myImage" onChange={uploadToClient} />
