@@ -46,6 +46,7 @@ const ProjectsListOrganism = () => {
 						<Grid item xs={12} sm={6} md={3}>
 							<ProjectCard
 								projectName={project.project_name}
+								projectDescription={project.project_description}
 								projectData={project.project_data}
 								viewProductUrl={`/admin/${returnCurrentModule(router)}/projects/${
 									project.project_id

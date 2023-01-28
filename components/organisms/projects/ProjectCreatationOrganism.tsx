@@ -23,7 +23,7 @@ const ProjectCreatationOrganism = ({ handleClose }: any) => {
 
 			const newProjectObject = {
 				project_name: formData.get("projectName"),
-				project_data: formData.get("projectData"),
+				project_description: formData.get("projectDescription"),
 			};
 
 			const createProjectRes = await fetch(`/api/projects`, {
@@ -69,10 +69,10 @@ const ProjectCreatationOrganism = ({ handleClose }: any) => {
 						margin="normal"
 						required
 						fullWidth
-						name="projectData"
+						name="projectDescription"
 						label="Project Description"
 						type="text"
-						id="projectData"
+						id="projectDescription"
 					/>
 
 					{/* <Grid container>

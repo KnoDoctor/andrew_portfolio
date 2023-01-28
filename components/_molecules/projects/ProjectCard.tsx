@@ -12,18 +12,24 @@ import Link from "../../_atoms/Link";
 
 interface ProjectCardProps {
 	projectName?: string;
+	projectDescription?: string;
 	projectData?: string;
 	viewProductUrl?: string;
 }
 
-const ProjectCard = ({ projectName, projectData, viewProductUrl }: ProjectCardProps) => {
+const ProjectCard = ({
+	projectName,
+	projectDescription,
+	projectData,
+	viewProductUrl,
+}: ProjectCardProps) => {
 	return (
 		<Card variant={"outlined"} sx={{ p: 3, width: "100%", background: "#fafafa" }}>
 			<Grid container>
 				<Grid item xs={9}>
 					<Avatar sx={{ height: 64, width: 64, mb: 2 }}>
 						{typeof projectName === "string" ? projectName[0] : ""}
-						{typeof projectData === "string" ? projectData[0] : ""}
+						{typeof projectDescription === "string" ? projectDescription[0] : ""}
 					</Avatar>
 				</Grid>
 				<Grid
@@ -47,7 +53,7 @@ const ProjectCard = ({ projectName, projectData, viewProductUrl }: ProjectCardPr
 
 				<Grid item xs={12}>
 					<Typography variant="body2" sx={{ my: 2 }}>
-						{projectData}
+						{projectDescription}
 					</Typography>
 				</Grid>
 				<Grid container spacing={2}>

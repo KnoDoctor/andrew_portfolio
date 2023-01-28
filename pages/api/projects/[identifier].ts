@@ -63,7 +63,13 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
 
 	async function updateProject() {
 		try {
-			const { project_name, project_data, project_hero_image, is_published } = req.body;
+			const {
+				project_name,
+				project_description,
+				project_data,
+				project_hero_image,
+				is_published,
+			} = req.body;
 
 			const patchedPost = await prisma.projects.update({
 				where: {
@@ -71,6 +77,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
 				},
 				data: {
 					project_name,
+					project_description,
 					project_data,
 					project_hero_image,
 					is_published,

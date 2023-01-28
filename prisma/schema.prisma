@@ -79,9 +79,10 @@ model people {
 }
 
 model projects {
-  project_id         String  @id @db.Uuid
-  project_name       String
-  project_data       String?
-  project_hero_image String?
-  is_published       Boolean @default(false)
+  project_id          String  @id @db.Uuid
+  project_name        String
+  project_description String?
+  project_data        String?
+  project_hero_image  String?
+  is_published        Boolean @default(false)
 }

@@ -68,6 +68,7 @@ const ProjectOrganism = () => {
 	const project = useProject(id);
 
 	const [projectName, setProjectName] = useState<string | null>(null);
+	const [projectDescription, setProjectDescription] = useState<string | null>(null);
 	const [updatedProjectData, setUpdatedProjectData] = useState<string | null>(null);
 	const [updatedHeroImage, setUpdatedHeroImage] = useState<string | null>(null);
 	const [updatedIsPublished, setUpdatedIsPublished] = useState<string | null>(null);
@@ -76,13 +77,18 @@ const ProjectOrganism = () => {
 
 	const [hasContentBeenEdited, setHasContentBeenEdited] = useState(false);
 
-	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+	const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setProjectName(event.target.value);
+		setHasContentBeenEdited(true);
+	};
+	const handleDescriptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setProjectDescription(event.target.value);
 		setHasContentBeenEdited(true);
 	};
 
 	useEffect(() => {
 		setProjectName(project?.data?.data?.project_name);
+		setProjectDescription(project?.data?.data?.project_description);
 		setUpdatedProjectData(project?.data?.data?.project_data);
 		setUpdatedHeroImage(project?.data?.data?.project_hero_image);
 		setUpdatedIsPublished(project?.data?.data?.is_published);
@@ -91,11 +97,12 @@ const ProjectOrganism = () => {
 	useEffect(() => {
 		setUpdatedProject({
 			project_name: projectName,
+			project_description: projectDescription,
 			project_data: updatedProjectData,
 			project_hero_image: updatedHeroImage,
 			is_published: updatedIsPublished,
 		});
-	}, [projectName, updatedProjectData, updatedHeroImage, updatedIsPublished]);
+	}, [projectName, projectDescription, updatedProjectData, updatedHeroImage, updatedIsPublished]);
 
 	console.log("UPDATED PROJECT", updatedProject);
 
@@ -138,7 +145,14 @@ const ProjectOrganism = () => {
 							id="outlined-name"
 							label="Project Name"
 							value={projectName}
-							onChange={handleChange}
+							onChange={handleNameChange}
+						/>
+						<TextField
+							sx={{ width: "100%", mb: 2 }}
+							id="outlined-name"
+							label="Project Description"
+							value={projectDescription}
+							onChange={handleDescriptionChange}
 						/>
 						<Box>
 							<ProjectEditor
