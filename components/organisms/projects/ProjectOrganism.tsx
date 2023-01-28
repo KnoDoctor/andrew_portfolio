@@ -71,7 +71,7 @@ const ProjectOrganism = () => {
 	const [projectDescription, setProjectDescription] = useState<string | null>(null);
 	const [updatedProjectData, setUpdatedProjectData] = useState<string | null>(null);
 	const [updatedHeroImage, setUpdatedHeroImage] = useState<string | null>(null);
-	const [updatedIsPublished, setUpdatedIsPublished] = useState<string | null>(null);
+	const [updatedIsPublished, setUpdatedIsPublished] = useState<boolean | undefined>(undefined);
 
 	const [updatedProject, setUpdatedProject] = useState<{} | null>(null);
 
@@ -164,23 +164,16 @@ const ProjectOrganism = () => {
 					</Grid>
 					<Grid item xs={3}>
 						<ProjectSidebar
+							project={project}
+							updatedProject={updatedProject}
 							projectHeroImage={updatedHeroImage}
+							hasContentBeenEdited={hasContentBeenEdited}
 							setHasContentBeenEdited={setHasContentBeenEdited}
 							setUpdatedHeroImage={setUpdatedHeroImage}
+							handleSaveProject={handleSaveProject}
+							updatedIsPublished={updatedIsPublished}
+							setUpdatedIsPublished={setUpdatedIsPublished}
 						/>
-						<Button
-							variant="contained"
-							disabled={!hasContentBeenEdited}
-							onClick={() =>
-								handleSaveProject({
-									updatedProject,
-									project,
-									setHasContentBeenEdited,
-								})
-							}
-						>
-							{!hasContentBeenEdited ? "Up to Date" : "Save"}
-						</Button>
 					</Grid>
 				</Grid>
 			</Card>
