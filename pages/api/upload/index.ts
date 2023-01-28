@@ -1,8 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-
 import { IncomingForm } from "formidable";
 
-var mv = require("mv");
+const cloudinary = require("cloudinary");
 
 export const config = {
 	api: {
@@ -10,22 +9,41 @@ export const config = {
 	},
 };
 
+cloudinary.config({
+	cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+	api_key: process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY,
+	api_secret: process.env.NEXT_PUBLIC_CLOUDINARY_API_SECRET,
+});
+
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-	const data = await new Promise((resolve, reject) => {
+	try {
 		const form = new IncomingForm();
 
-		form.parse(req, (err: any, fields: any, files: any) => {
-			if (err) return reject(err);
-			// console.log(fields, files);
-			// console.log(files.upload.filepath);
-			var oldPath = files.upload.filepath;
-			var newPath = `./public/uploads/${files.upload.originalFilename}`;
-			mv(oldPath, newPath, function (err: any) {});
-			res.status(200).json({
-				fields,
-				files,
-				url: encodeURI(`/uploads/${files.upload.originalFilename}`),
-			});
+		form.parse(req, async (error: any, fields: any, files: any) => {
+			if (error)
+				return res.status(500).json({
+					error,
+				});
+
+			cloudinary.v2.uploader.upload(
+				files.upload.filepath,
+				{ upload_preset: "kavzrzu2" },
+				(error: any, result: any) => {
+					if (error)
+						return res.status(500).json({
+							error,
+						});
+					res.status(200).json({
+						fields,
+						files,
+						url: result.secure_url,
+					});
+				}
+			);
 		});
-	});
+	} catch (error) {
+		return res.status(500).json({
+			error,
+		});
+	}
 };
