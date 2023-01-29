@@ -64,8 +64,8 @@ const Portfolio = () => {
 				display: "flex",
 				justifyContent: "center",
 				flexDirection: "column",
-				py: { xs: 12, md: 0 },
-				height: { xs: null, md: "100vh" },
+				py: 12,
+				// height: { xs: null, md: "100vh" },
 			}}
 		>
 			<SlideIn>
@@ -74,13 +74,15 @@ const Portfolio = () => {
 						Projects
 					</Typography>
 					<Grid container spacing={4}>
-						{projects.data.data.map((project: any, i: number) => {
-							return (
-								<Grid item xs={12} sm={6} md={4}>
-									<PortfolioCard project={project} i={i} />
-								</Grid>
-							);
-						})}
+						{projects.data.data
+							.filter((project: any) => project.is_published === true)
+							.map((project: any, i: number) => {
+								return (
+									<Grid item xs={12} sm={6} md={4}>
+										<PortfolioCard project={project} i={i} />
+									</Grid>
+								);
+							})}
 					</Grid>
 				</>
 			</SlideIn>

@@ -62,15 +62,26 @@ export default function Home() {
 					},
 				]}
 			/> */}
-			<div
-				style={{
-					width: "60%",
-					height: "100vh",
+			<Box
+				// style={{
+				// 	width: "60%",
+				// 	// height: "100vh",
+				// 	display: "flex",
+				// 	flexDirection: "column",
+				// 	justifyContent: "center",
+				// 	alignItems: "center",
+				// 	margin: "auto",
+				// }}
+				sx={{
+					width: "80%",
 					display: "flex",
-					flexDirection: "column",
 					justifyContent: "center",
-					alignItems: "center",
+					flexDirection: "column",
+					py: 12,
 					margin: "auto",
+					alignItems: "center",
+					maxWidth: "1000px",
+					minHeight: { xs: null, md: "100vh" },
 				}}
 			>
 				<SlideIn>
@@ -86,7 +97,7 @@ export default function Home() {
 				</SlideIn>
 				<SlideIn>
 					<Grid container spacing={4}>
-						<Grid item xs={12} md={4}>
+						<Grid item xs={12} sm={4}>
 							<HomepageActionCard
 								label="Projects"
 								anchor="/projects"
@@ -97,7 +108,7 @@ export default function Home() {
 								i={1}
 							/>
 						</Grid>
-						<Grid item xs={12} md={4}>
+						<Grid item xs={12} sm={4}>
 							<HomepageActionCard
 								label="About Me"
 								anchor="/about"
@@ -108,7 +119,7 @@ export default function Home() {
 								i={2}
 							/>
 						</Grid>
-						<Grid item xs={12} md={4}>
+						<Grid item xs={12} sm={4}>
 							<HomepageActionCard
 								label="Contact"
 								anchor="/contact"
@@ -122,7 +133,7 @@ export default function Home() {
 					</Grid>
 				</SlideIn>
 				<Copyright />
-			</div>
+			</Box>
 			{/* <Portfolio />
             <About />
             <Contact />
