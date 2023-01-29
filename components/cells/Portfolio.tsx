@@ -64,8 +64,8 @@ const Portfolio = () => {
 				display: "flex",
 				justifyContent: "center",
 				flexDirection: "column",
-				py: { xs: 12, md: 0 },
-				height: { xs: null, md: "100vh" },
+				py: 12,
+				// height: { xs: null, md: "100vh" },
 			}}
 		>
 			<SlideIn>

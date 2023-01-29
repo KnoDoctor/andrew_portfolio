@@ -62,15 +62,25 @@ export default function Home() {
 					},
 				]}
 			/> */}
-			<div
-				style={{
+			<Box
+				// style={{
+				// 	width: "60%",
+				// 	// height: "100vh",
+				// 	display: "flex",
+				// 	flexDirection: "column",
+				// 	justifyContent: "center",
+				// 	alignItems: "center",
+				// 	margin: "auto",
+				// }}
+				sx={{
 					width: "60%",
-					height: "100vh",
 					display: "flex",
-					flexDirection: "column",
 					justifyContent: "center",
-					alignItems: "center",
+					flexDirection: "column",
+					py: 12,
 					margin: "auto",
+					alignItems: "center",
+					// height: { xs: null, md: "100vh" },
 				}}
 			>
 				<SlideIn>
@@ -122,7 +132,7 @@ export default function Home() {
 					</Grid>
 				</SlideIn>
 				<Copyright />
-			</div>
+			</Box>
 			{/* <Portfolio />
             <About />
             <Contact />
