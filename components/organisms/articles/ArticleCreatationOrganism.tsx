@@ -8,10 +8,10 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { Box, TextField } from "@mui/material";
 
-import useProjects from "../../../hooks/projects/useProjects";
+import useArticles from "../../../hooks/articles/useArticles";
 
-const ProjectCreatationOrganism = ({ handleClose }: any) => {
-	const projects = useProjects();
+const ArticleCreatationOrganism = ({ handleClose }: any) => {
+	const articles = useArticles();
 
 	const [isError, setIsError] = React.useState(false);
 	const [errorMessage, setErrorMessage] = React.useState("");
@@ -21,31 +21,31 @@ const ProjectCreatationOrganism = ({ handleClose }: any) => {
 			event.preventDefault();
 			const formData = new FormData(event.currentTarget);
 
-			const newProjectObject = {
-				project_name: formData.get("projectName"),
-				project_description: formData.get("projectDescription"),
+			const newArticleObject = {
+				article_name: formData.get("articleName"),
+				article_description: formData.get("articleDescription"),
 			};
 
-			const createProjectRes = await fetch(`/api/projects`, {
+			const createArticleRes = await fetch(`/api/articles`, {
 				method: "POST",
 
 				headers: {
 					"Content-Type": "application/json",
 				},
-				body: JSON.stringify(newProjectObject),
+				body: JSON.stringify(newArticleObject),
 			});
-			const createProjectData = await createProjectRes.json();
+			const createArticleData = await createArticleRes.json();
 
-			if (createProjectData.success) {
-				projects.mutate();
+			if (createArticleData.success) {
+				articles.mutate();
 				handleClose();
 			} else {
-				console.log("ERROR: ", createProjectData);
+				console.log("ERROR: ", createArticleData);
 
 				setIsError(true);
-				if (createProjectData.message) setErrorMessage(`${createProjectData.message}`);
-				if (createProjectData.error)
-					setErrorMessage(`API Error: ${createProjectData.error}`);
+				if (createArticleData.message) setErrorMessage(`${createArticleData.message}`);
+				if (createArticleData.error)
+					setErrorMessage(`API Error: ${createArticleData.error}`);
 			}
 		} catch (error) {
 			console.log(error);
@@ -54,25 +54,25 @@ const ProjectCreatationOrganism = ({ handleClose }: any) => {
 	return (
 		<>
 			<Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
-				<DialogTitle id="scroll-dialog-title">Add New Project</DialogTitle>
+				<DialogTitle id="scroll-dialog-title">Add New Article</DialogTitle>
 				<DialogContent dividers={true}>
 					<TextField
 						margin="normal"
 						required
 						fullWidth
-						id="projectName"
-						label="Project Name"
-						name="projectName"
+						id="articleName"
+						label="Article Name"
+						name="articleName"
 						autoFocus
 					/>
 					<TextField
 						margin="normal"
 						required
 						fullWidth
-						name="projectDescription"
-						label="Project Description"
+						name="articleDescription"
+						label="Article Description"
 						type="text"
-						id="projectDescription"
+						id="articleDescription"
 					/>
 
 					{/* <Grid container>
@@ -101,4 +101,4 @@ const ProjectCreatationOrganism = ({ handleClose }: any) => {
 	);
 };
 
-export default ProjectCreatationOrganism;
+export default ArticleCreatationOrganism;

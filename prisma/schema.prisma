@@ -86,3 +86,14 @@ model projects {
   project_hero_image  String?
   is_published        Boolean @default(false)
 }
+
+model articles {
+  article_id          String  @id @db.Uuid
+  article_name        String
+  article_description String?
+  article_data        String?
+  article_prompt      String?
+  article_ai_response String?
+  article_hero_image  String?
+  is_published        Boolean @default(false)
+}

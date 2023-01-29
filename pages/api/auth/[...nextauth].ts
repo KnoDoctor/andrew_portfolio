@@ -79,7 +79,6 @@ export const authOptions: NextAuthOptions = {
 	},
 	callbacks: {
 		async jwt({ token }) {
-			console.log(token);
 			if (
 				token.email === "barfieldjt@gmail.com" ||
 				token.email === "andrewbarfield4@gmail.com" ||
