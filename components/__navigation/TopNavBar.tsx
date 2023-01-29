@@ -102,16 +102,16 @@ const TopNavBar = ({ isXs, isDrawerOpen, handleDrawerOpen }: TopNavBarProps) => 
 								alignItems: "center",
 							}}
 						>
-							<IconButton
+							{/* <IconButton
 								sx={{ color: "#fff", padding: 0, mr: "30px" }}
 								onClick={() => handleDrawerOpen(isDrawerOpen)}
 							>
 								<MenuIcon />
-							</IconButton>
+							</IconButton> */}
 							<Link href="/" sx={{ textDecoration: "none", color: "#fff" }}>
 								<Box
 									sx={{
-										display: { xs: "none", sm: "flex" },
+										display: "flex",
 										alignItems: "center",
 									}}
 								>
@@ -121,7 +121,7 @@ const TopNavBar = ({ isXs, isDrawerOpen, handleDrawerOpen }: TopNavBarProps) => 
 										component="p"
 										// href="/"
 										sx={{
-											display: { xs: "none", sm: "flex" },
+											display: "flex",
 											mr: 1,
 											fontFamily: "'Arimo', sans-serif",
 											fontWeight: 100,
@@ -139,7 +139,7 @@ const TopNavBar = ({ isXs, isDrawerOpen, handleDrawerOpen }: TopNavBarProps) => 
 										component="p"
 										// href="/"
 										sx={{
-											display: { xs: "none", sm: "flex" },
+											display: "flex",
 											mt: "4px",
 											fontWeight: 400,
 											// letterSpacing: ".3rem",
@@ -158,7 +158,7 @@ const TopNavBar = ({ isXs, isDrawerOpen, handleDrawerOpen }: TopNavBarProps) => 
 										// href="/"
 										sx={{
 											mr: 2,
-											display: { xs: "none", sm: "flex" },
+											display: "flex",
 											mt: "4px",
 											fontWeight: 400,
 											// letterSpacing: ".3rem",
