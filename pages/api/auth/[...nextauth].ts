@@ -79,7 +79,15 @@ export const authOptions: NextAuthOptions = {
 	},
 	callbacks: {
 		async jwt({ token }) {
-			token.userRole = "admin";
+			console.log(token);
+			if (
+				token.email === "barfieldjt@gmail.com" ||
+				token.email === "andrewbarfield4@gmail.com"
+			) {
+				token.userRole = "admin";
+				return token;
+			}
+
 			return token;
 		},
 	},
