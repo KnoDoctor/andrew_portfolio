@@ -3,7 +3,16 @@ import { useState } from "react";
 import Image from "next/image";
 import UploadButton from "../../_atoms/UploadButton";
 
-import { Grid, Box, Button, Typography, FormGroup, FormControlLabel, Switch } from "@mui/material";
+import {
+	Grid,
+	Box,
+	Button,
+	Typography,
+	FormGroup,
+	FormControlLabel,
+	TextField,
+	Switch,
+} from "@mui/material";
 
 interface ArticleSidebarProps {
 	articleHeroImage: string | null;
@@ -12,27 +21,97 @@ interface ArticleSidebarProps {
 	setHasContentBeenEdited(value: boolean): void;
 	updatedArticle: any;
 	article: any;
-	handleSaveArticle(object: any): void;
+	setUpdatedArticleData(data: any): void;
 	updatedIsPublished: boolean | undefined;
 	setUpdatedIsPublished(object: any): void;
+	handleSaveArticle(object: any): void;
 }
 
 const ArticleSidebar = ({
 	articleHeroImage,
-	setHasContentBeenEdited,
-	hasContentBeenEdited,
 	setUpdatedHeroImage,
+	hasContentBeenEdited,
+	setHasContentBeenEdited,
 	article,
 	updatedArticle,
 	handleSaveArticle,
 	updatedIsPublished,
 	setUpdatedIsPublished,
+	setUpdatedArticleData,
 }: ArticleSidebarProps) => {
 	const [checked, setChecked] = useState(true);
+	const [imagePrompt, setImagePrompt] = useState("");
+	const [articlePrompt, setArticlePrompt] = useState("");
+
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setChecked(event.target.checked);
 		setUpdatedIsPublished(!updatedIsPublished);
 		setHasContentBeenEdited(true);
+	};
+
+	const handleGenerateImageSubmit = async (imagePrompt: string) => {
+		try {
+			const imageGenerationOptions = {
+				prompt: imagePrompt,
+			};
+
+			const generateImageRes = await fetch(`/api/ai/generateImage`, {
+				method: "POST",
+
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(imageGenerationOptions),
+			});
+			const generatedImageData = await generateImageRes.json();
+
+			if (generatedImageData.success) {
+				console.log("Success: ", generatedImageData);
+				setUpdatedHeroImage(generatedImageData.data.cloudinaryUrl);
+				setHasContentBeenEdited(true);
+			} else {
+				console.log("ERROR: ", generatedImageData);
+				// setIsError(true);
+				// if (createProjectData.message) setErrorMessage(`${createProjectData.message}`);
+				// if (createProjectData.error)
+				// 	setErrorMessage(`API Error: ${createProjectData.error}`);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	const handleGenerateArticleSubmit = async (articlePrompt: string) => {
+		try {
+			const articleGenerationOptions = {
+				prompt: articlePrompt,
+			};
+
+			const generateArticleRes = await fetch(`/api/ai/generateArticle`, {
+				method: "POST",
+
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(articleGenerationOptions),
+			});
+
+			const generatedArticleData = await generateArticleRes.json();
+
+			if (generatedArticleData.success) {
+				console.log("Success: ", generatedArticleData);
+				setUpdatedArticleData(generatedArticleData.data.article);
+				setHasContentBeenEdited(true);
+			} else {
+				console.log("ERROR: ", generatedArticleData);
+				// setIsError(true);
+				// if (createProjectData.message) setErrorMessage(`${createProjectData.message}`);
+				// if (createProjectData.error)
+				// 	setErrorMessage(`API Error: ${createProjectData.error}`);
+			}
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	return (
@@ -87,6 +166,41 @@ const ArticleSidebar = ({
 					setUpdatedHeroImage={setUpdatedHeroImage}
 					setHasContentBeenEdited={setHasContentBeenEdited}
 				/>
+			</Grid>
+			<Grid item xs={12}>
+				<Typography variant="h6" mb={2}>
+					AI Tools
+				</Typography>
+				<TextField
+					multiline
+					sx={{ width: "100%", mb: 2 }}
+					id="imagePrompt"
+					label="Image Prompt"
+					value={imagePrompt}
+					onChange={(e) => setImagePrompt(e.target.value)}
+				/>
+				<Button
+					variant="contained"
+					sx={{ width: "100%" }}
+					onClick={() => handleGenerateImageSubmit(imagePrompt)}
+				>
+					{"Generate Hero Image"}
+				</Button>
+				<TextField
+					multiline
+					sx={{ width: "100%", my: 2 }}
+					id="outlined-name"
+					label="Article Prompt"
+					value={articlePrompt}
+					onChange={(e) => setArticlePrompt(e.target.value)}
+				/>
+				<Button
+					variant="contained"
+					sx={{ width: "100%" }}
+					onClick={() => handleGenerateArticleSubmit(articlePrompt)}
+				>
+					{"Generate Article"}
+				</Button>
 			</Grid>
 		</Grid>
 	);
