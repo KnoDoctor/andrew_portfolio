@@ -73,7 +73,13 @@ const ArticleOrganism = () => {
 	const [updatedHeroImage, setUpdatedHeroImage] = useState<string | null>(null);
 	const [updatedIsPublished, setUpdatedIsPublished] = useState<boolean | undefined>(undefined);
 
-	const [updatedArticle, setUpdatedArticle] = useState<{} | null>(null);
+	const [updatedArticle, setUpdatedArticle] = useState<{
+		article_name: string | null;
+		article_description: string | null;
+		article_data: string | null;
+		article_hero_image: string | null;
+		is_published: boolean | undefined;
+	} | null>(null);
 
 	const [hasContentBeenEdited, setHasContentBeenEdited] = useState(false);
 
@@ -104,7 +110,8 @@ const ArticleOrganism = () => {
 		});
 	}, [articleName, articleDescription, updatedArticleData, updatedHeroImage, updatedIsPublished]);
 
-	console.log("UPDATED PROJECT", updatedArticle);
+	console.log("UPDATED ARTICLE", updatedArticle);
+	console.log("ARTICLE", article);
 
 	if (article.isLoading || !isReady) {
 		return <div>Loading</div>;
@@ -139,7 +146,7 @@ const ArticleOrganism = () => {
 
 			<Card sx={{ height: "100%", p: 2, mt: 2 }}>
 				<Grid container spacing={3}>
-					<Grid item xs={11} md={9}>
+					<Grid item xs={12} md={8}>
 						<TextField
 							sx={{ width: "100%", mb: 2 }}
 							id="outlined-name"
@@ -156,15 +163,16 @@ const ArticleOrganism = () => {
 						/>
 						<Box>
 							<ArticleEditor
-								article={article}
+								article={updatedArticle?.article_data}
 								setUpdatedArticleData={setUpdatedArticleData}
 								setHasContentBeenEdited={setHasContentBeenEdited}
 							/>
 						</Box>
 					</Grid>
-					<Grid item xs={12} md={3}>
+					<Grid item xs={12} md={4}>
 						<ArticleSidebar
 							article={article}
+							setUpdatedArticleData={setUpdatedArticleData}
 							updatedArticle={updatedArticle}
 							articleHeroImage={updatedHeroImage}
 							hasContentBeenEdited={hasContentBeenEdited}

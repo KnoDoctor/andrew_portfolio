@@ -17,7 +17,7 @@ const ArticleEditor = ({
 }: ArticleEditorProps) => {
 	return (
 		<Editor
-			data={article.data.data.article_data}
+			data={article}
 			setUpdatedData={setUpdatedArticleData}
 			setHasContentBeenEdited={setHasContentBeenEdited}
 		/>
