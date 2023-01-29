@@ -64,7 +64,7 @@ export default function PortfolioCard({ project, i }: PortfolioCardProps) {
 			<ButtonBase
 				focusRipple
 				sx={{ display: "flex", flexDirection: "column" }}
-				onClick={() => router.push(`/projects/${i}`)}
+				onClick={() => router.push(`/projects/${project.project_id}`)}
 			>
 				<CardMedia
 					component="img"
