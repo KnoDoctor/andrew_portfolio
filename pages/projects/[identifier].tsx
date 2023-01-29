@@ -69,6 +69,16 @@ const Project = ({ projectData }: any) => {
 				</Box>
 			</SlideIn>
 			<SlideIn delaySlideIn={0.1}>
+				<Typography variant="h2" component="h1" textAlign={"center"} gutterBottom>
+					{projectData?.data?.project_name}
+				</Typography>
+			</SlideIn>
+			<SlideIn delaySlideIn={0.2}>
+				<Typography variant="h5" component="h2" textAlign={"center"}>
+					{projectData?.data?.project_description}
+				</Typography>
+			</SlideIn>
+			<SlideIn delaySlideIn={0.3}>
 				{
 					<Box id={`ckeditor_content`}>
 						{typeof projectData?.data?.project_data === "string"
@@ -77,18 +87,6 @@ const Project = ({ projectData }: any) => {
 					</Box>
 				}
 			</SlideIn>
-			{/* <SlideIn delaySlideIn={0.1}>
-				<Typography variant="h2" component="h1" textAlign={"center"} gutterBottom>
-					Beamish Beer Taps
-				</Typography>
-			</SlideIn>
-			<SlideIn delaySlideIn={0.2}>
-				<Typography variant="h5" component="h2" textAlign={"center"}>
-					Blending 3D printing and traditional tap hardware we created these custom beer
-					taps draw inspiration from the restaurants beloved history to showcase there
-					house beers.
-				</Typography>
-			</SlideIn> */}
 			{/* <Divider sx={{ my: 3 }} />
                 <Typography variant="h4" component="h3">
                     Contents
