@@ -185,7 +185,7 @@ export default function MiniDrawer({ children }: any) {
 						{
 							label: "Loyalty",
 							icon: <LoyaltyIcon />,
-							href: "/admin/operations",
+							href: "/admin/loyalty",
 						},
 						{
 							label: "Analytics",

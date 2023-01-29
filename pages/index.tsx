@@ -73,14 +73,15 @@ export default function Home() {
 				// 	margin: "auto",
 				// }}
 				sx={{
-					width: "60%",
+					width: "80%",
 					display: "flex",
 					justifyContent: "center",
 					flexDirection: "column",
 					py: 12,
 					margin: "auto",
 					alignItems: "center",
-					// height: { xs: null, md: "100vh" },
+					maxWidth: "1000px",
+					minHeight: { xs: null, md: "100vh" },
 				}}
 			>
 				<SlideIn>
@@ -96,7 +97,7 @@ export default function Home() {
 				</SlideIn>
 				<SlideIn>
 					<Grid container spacing={4}>
-						<Grid item xs={12} md={4}>
+						<Grid item xs={12} sm={4}>
 							<HomepageActionCard
 								label="Projects"
 								anchor="/projects"
@@ -107,7 +108,7 @@ export default function Home() {
 								i={1}
 							/>
 						</Grid>
-						<Grid item xs={12} md={4}>
+						<Grid item xs={12} sm={4}>
 							<HomepageActionCard
 								label="About Me"
 								anchor="/about"
@@ -118,7 +119,7 @@ export default function Home() {
 								i={2}
 							/>
 						</Grid>
-						<Grid item xs={12} md={4}>
+						<Grid item xs={12} sm={4}>
 							<HomepageActionCard
 								label="Contact"
 								anchor="/contact"
