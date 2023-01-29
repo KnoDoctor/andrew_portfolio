@@ -37,7 +37,7 @@ const ProjectSidebar = ({
 
 	return (
 		<Grid container>
-			<Grid item xs={6}>
+			<Grid item xs={12} lg={6}>
 				<FormGroup>
 					<FormControlLabel
 						label={updatedIsPublished ? "Published" : "Draft"}
@@ -51,7 +51,7 @@ const ProjectSidebar = ({
 					></FormControlLabel>
 				</FormGroup>
 			</Grid>
-			<Grid item xs={6}>
+			<Grid item xs={12} lg={6}>
 				<Button
 					variant="contained"
 					sx={{ width: "100%" }}

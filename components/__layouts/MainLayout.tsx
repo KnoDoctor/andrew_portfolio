@@ -11,52 +11,45 @@ import NavBar from "../__navigation/NavBar";
 // import BottomNavigation from './BottomNavigation';
 
 const MainLayout = ({ children }: any) => {
-    // const [contact, setContact] = useContext(ContactContext);
-    // const { user, isLoading } = useUser();
+	// const [contact, setContact] = useContext(ContactContext);
+	// const { user, isLoading } = useUser();
 
-    // const getContact = async () => {
-    //     const contactRes = await fetch(`/api/contacts/${user.email}`);
-    //     if (contactRes.status === 401) return;
+	// const getContact = async () => {
+	//     const contactRes = await fetch(`/api/contacts/${user.email}`);
+	//     if (contactRes.status === 401) return;
 
-    //     const contactData = await contactRes.json();
-    //     console.log(contactData);
-    //     setContact(contactData.contacts[0]);
-    // };
+	//     const contactData = await contactRes.json();
+	//     console.log(contactData);
+	//     setContact(contactData.contacts[0]);
+	// };
 
-    // useEffect(() => {
-    //     if (user && !isLoading) {
-    //         getContact();
-    //     }
-    // }, [isLoading]);
-    return (
-        <>
-            <Head>
-                {/* <link
+	// useEffect(() => {
+	//     if (user && !isLoading) {
+	//         getContact();
+	//     }
+	// }, [isLoading]);
+	return (
+		<>
+			<Head>
+				{/* <link
         rel="stylesheet"
         href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossOrigin="anonymous"
       />
       <link rel="stylesheet" href="https://cdn.auth0.com/js/auth0-samples-theme/1.0/css/auth0-theme.min.css" /> */}
-                <meta
-                    name="viewport"
-                    content="initial-scale=1, width=device-width"
-                />
-                <title>AB Designs</title>
-            </Head>
-            <main
-                id="app"
-                data-testid="layout"
-                style={{ position: "relative" }}
-            >
-                <NavBar />
-                {/*<TopChipSlider /> */}
-                <div>{children}</div>
-                {/* <Footer /> */}
-                {/* <BottomNavigation /> */}
-            </main>
-        </>
-    );
+				<meta name="viewport" content="initial-scale=1, width=device-width" />
+				<title>AB Designs</title>
+			</Head>
+			<main id="app" data-testid="layout" style={{ position: "relative" }}>
+				<NavBar />
+				{/*<TopChipSlider /> */}
+				<div>{children}</div>
+				{/* <Footer /> */}
+				{/* <BottomNavigation /> */}
+			</main>
+		</>
+	);
 };
 
 export default MainLayout;

@@ -139,7 +139,7 @@ const ProjectOrganism = () => {
 
 			<Card sx={{ height: "100%", p: 2, mt: 2 }}>
 				<Grid container spacing={3}>
-					<Grid item xs={9}>
+					<Grid item xs={11} md={9}>
 						<TextField
 							sx={{ width: "100%", mb: 2 }}
 							id="outlined-name"
@@ -162,7 +162,7 @@ const ProjectOrganism = () => {
 							/>
 						</Box>
 					</Grid>
-					<Grid item xs={3}>
+					<Grid item xs={12} md={3}>
 						<ProjectSidebar
 							project={project}
 							updatedProject={updatedProject}

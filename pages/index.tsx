@@ -81,7 +81,7 @@ export default function Home() {
 					margin: "auto",
 					alignItems: "center",
 					maxWidth: "1000px",
-					minHeight: { xs: null, md: "100vh" },
+					minHeight: "100vh",
 				}}
 			>
 				<SlideIn>
