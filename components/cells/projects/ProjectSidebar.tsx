@@ -73,7 +73,7 @@ const ProjectSidebar = ({
 						<Image
 							src={
 								projectHeroImage ||
-								"http://localhost:3000/_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1473343775075-61805b64e5d6%3Fixlib%3Drb-4.0.3%26ixid%3DMnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8%26auto%3Dformat%26fit%3Dcrop%26w%3D1548%26q%3D80&w=1080&q=75"
+								"https://images.unsplash.com/photo-1473343775075-61805b64e5d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80"
 							}
 							fill={true}
 							alt="test"
