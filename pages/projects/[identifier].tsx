@@ -61,7 +61,10 @@ const Project = ({ projectData }: any) => {
 					}}
 				>
 					<Image
-						src={projectData?.data?.project_hero_image}
+						src={
+							projectData?.data?.project_hero_image ||
+							"https://images.unsplash.com/photo-1473343775075-61805b64e5d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80"
+						}
 						fill={true}
 						alt="test123"
 						style={{ objectFit: "cover", borderRadius: "25px" }}
