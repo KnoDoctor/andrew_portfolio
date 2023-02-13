@@ -1,4 +1,7 @@
 import * as React from "react";
+
+import Image from "next/image";
+
 import ButtonBase from "@mui/material/ButtonBase";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -6,6 +9,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 import { motion } from "framer-motion";
 import { useRouter } from "next/router";
@@ -66,7 +70,7 @@ export default function PortfolioCard({ project, i }: PortfolioCardProps) {
 				sx={{ display: "flex", flexDirection: "column" }}
 				onClick={() => router.push(`/projects/${project.project_id}`)}
 			>
-				<CardMedia
+				{/* <CardMedia
 					component="img"
 					width={"100%"}
 					height={250}
@@ -75,7 +79,25 @@ export default function PortfolioCard({ project, i }: PortfolioCardProps) {
 						"https://images.unsplash.com/photo-1473343775075-61805b64e5d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80"
 					}
 					alt="green iguana"
-				/>
+				/> */}
+				<Box
+					sx={{
+						width: "100%",
+						height: { xs: "250px" },
+						position: "relative",
+						margin: "auto",
+					}}
+				>
+					<Image
+						src={
+							project.project_hero_image ||
+							"https://images.unsplash.com/photo-1473343775075-61805b64e5d6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80"
+						}
+						alt="profile"
+						fill={true}
+						style={{ objectFit: "cover", objectPosition: "top" }}
+					/>
+				</Box>
 				<CardContent>
 					<Typography gutterBottom variant="h5" component="div">
 						{project.project_name}
