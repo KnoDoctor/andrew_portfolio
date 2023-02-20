@@ -97,3 +97,10 @@ model articles {
   article_hero_image  String?
   is_published        Boolean @default(false)
 }
+
+model pages {
+  page_id            String @id @db.Uuid
+  page_name          String @db.VarChar(150)
+  page_cms_data      Json   @default("[]")
+  page_lookup_string String @db.VarChar(500)
+}

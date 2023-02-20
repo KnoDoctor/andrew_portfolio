@@ -8,6 +8,7 @@ const marketingModules = [
 	{ name: "People", anchor: "/admin/marketing/people" },
 	{ name: "Projects", anchor: "/admin/marketing/projects" },
 	{ name: "Articles", anchor: "/admin/marketing/articles" },
+	{ name: "Pages", anchor: "/admin/marketing/pages" },
 ];
 
 const Marketing = () => {
