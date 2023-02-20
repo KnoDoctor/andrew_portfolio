@@ -13,12 +13,6 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
 
 	let page_id = typeof identifier === "string" ? identifier : "";
 
-	if (!checkIfGuid(page_id))
-		return res.status(400).json({
-			success: false,
-			error: "Please supply a uuid.",
-		});
-
 	switch (method) {
 		case "GET":
 			return getPage();
@@ -32,24 +26,43 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
 
 	async function getPage() {
 		try {
-			let athlete;
+			let page;
 
-			athlete = await prisma.pages.findUnique({
-				where: {
-					page_id,
-				},
-			});
-
-			if (athlete) {
-				res.status(200).json({
-					success: true,
-					data: athlete,
+			if (!checkIfGuid(page_id)) {
+				page = await prisma.pages.findMany({
+					where: {
+						page_lookup_string: page_id,
+					},
 				});
+
+				if (page.length === 1) {
+					res.status(200).json({
+						success: true,
+						data: page,
+					});
+				} else {
+					res.status(404).json({
+						success: false,
+						data: page,
+					});
+				}
 			} else {
-				res.status(404).json({
-					success: false,
-					data: athlete,
+				page = await prisma.pages.findUnique({
+					where: {
+						page_id,
+					},
 				});
+				if (page) {
+					res.status(200).json({
+						success: true,
+						data: page,
+					});
+				} else {
+					res.status(404).json({
+						success: false,
+						data: page,
+					});
+				}
 			}
 		} catch (error) {
 			console.log(error);

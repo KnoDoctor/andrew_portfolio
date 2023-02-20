@@ -54,7 +54,7 @@ const PageDeletionOrganism = ({ pageId, pageName, open, handleClose }: any) => {
 	};
 
 	const redirectPage = () => {
-		router.push(`/admin/marketing/website/pages`);
+		router.push(`/admin/marketing/pages`);
 	};
 
 	return (

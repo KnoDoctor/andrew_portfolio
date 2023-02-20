@@ -39,7 +39,7 @@ export function parseWpCharacters(s) {
 export function createPageLookupString(str) {
 	if (str) {
 		try {
-			return str.toLowerCase().replace(/\//g, "_/");
+			return str.toLowerCase().replace(/\//g, "___");
 		} catch (e) {
 			console.log(e);
 		}
