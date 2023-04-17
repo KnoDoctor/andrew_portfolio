@@ -55,7 +55,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 		}
 
 		//Fetch Trip Data
-		const pageReq = await fetch(`${process.env.NEXTAUTH_URL}/api/pages/${identifier}`);
+		const pageReq = await fetch(
+			`${process.env.NEXT_PUBLIC_APP_DOMAIN}/api/pages/${identifier}`
+		);
 
 		const pageData = await pageReq.json();
 
