@@ -423,7 +423,7 @@ export async function getStaticProps({ params }: any) {
 	try {
 		//Fetch collection data
 		const projectReq = await fetch(
-			`${process.env.NEXTAUTH_URL}/api/projects/${params.identifier}`
+			`${process.env.NEXT_PUBLIC_APP_DOMAIN}/api/projects/${params.identifier}`
 		);
 
 		const projectData = await projectReq.json();
