@@ -10,7 +10,9 @@ const Page = ({ pageData }: any) => {
 		return <div style={{ padding: "150px" }}>Loading...</div>;
 	}
 
-	return <div style={{ padding: 150 }}>{pageData.data[0].page_name}</div>;
+	const page = pageData?.data[0];
+
+	return <div style={{ padding: 150 }}>{page.page_name}</div>;
 };
 
 export default Page;
