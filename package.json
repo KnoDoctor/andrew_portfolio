@@ -23,6 +23,7 @@
     "@next/font": "latest",
     "@prisma/client": "^4.8.1",
     "@types/formidable": "^2.0.5",
+    "@vercel/analytics": "^1.0.0",
     "cloudinary": "^1.33.0",
     "embla-carousel-react": "^7.0.5",
     "formidable": "^2.1.1",

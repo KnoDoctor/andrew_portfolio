@@ -1,5 +1,6 @@
 import * as React from "react";
 import Head from "next/head";
+import { Analytics } from "@vercel/analytics/react";
 import { AppProps } from "next/app";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -40,6 +41,7 @@ export default function MyApp(props: MyAppProps) {
 					</LayoutWrapper>
 				</ThemeProvider>
 			</SessionProvider>
+			<Analytics />
 		</CacheProvider>
 	);
 }
