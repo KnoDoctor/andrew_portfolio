@@ -27,6 +27,8 @@ export default function ComposedTextField() {
 
 	const [errorMessage, setErrorMessage] = React.useState("");
 
+	const [emailWasSent, setEmailWasSent] = React.useState(false);
+
 	const isFormValid = () => {
 		let isFormValid = true;
 
@@ -91,6 +93,10 @@ export default function ComposedTextField() {
 				body: JSON.stringify(formSubmissionObject),
 			});
 
+			if (sendMail.status === 200) {
+				setEmailWasSent(true);
+			}
+
 			// const createPersonRes = await fetch(`/api/people`, {
 			//     method: "POST",
 
@@ -119,109 +125,121 @@ export default function ComposedTextField() {
 	};
 
 	return (
-		<Grid
-			container
-			spacing={2}
-			component="form"
-			noValidate
-			autoComplete="off"
-			onSubmit={handleSubmit}
-		>
-			<Grid item xs={12} md={6}>
-				<FormControl error={isFirstNameError} fullWidth>
-					<InputLabel htmlFor="component-error">First Name*</InputLabel>
-					<OutlinedInput
-						value={firstName}
-						onChange={(e) => setFirstName(e.target.value)}
-						label="First Name*"
-						id="firstName"
-						name="firstName"
-						autoComplete="given-name"
-					/>
-					{isFirstNameError && (
-						<FormHelperText id="component-error-text">
-							Please enter your first name
-						</FormHelperText>
-					)}
-				</FormControl>
-			</Grid>
-			<Grid item xs={12} md={6}>
-				<FormControl error={isLastNameError} fullWidth>
-					<InputLabel htmlFor="component-error">Last Name*</InputLabel>
-					<OutlinedInput
-						value={lastName}
-						onChange={(e) => setLastName(e.target.value)}
-						label="Last Name*"
-						id="lastName"
-						name="lastName"
-						autoComplete="family-name"
-					/>
-					{isLastNameError && (
-						<FormHelperText id="component-error-text">
-							Please enter your last name
-						</FormHelperText>
-					)}
-				</FormControl>
-			</Grid>
-			<Grid item xs={12} md={6}>
-				<FormControl error={isEmailError} fullWidth>
-					<InputLabel htmlFor="component-error">Email</InputLabel>
-					<OutlinedInput
-						value={email}
-						onChange={(e) => setEmail(e.target.value)}
-						label="Email"
-						id="email"
-						name="email"
-						autoComplete="email"
-					/>
-					{isEmailError && (
-						<FormHelperText id="component-error-text">
-							Please enter a valid email address
-						</FormHelperText>
-					)}
-				</FormControl>
-			</Grid>
-			<Grid item xs={12} md={6}>
-				<FormControl error={isPhoneNumberError} fullWidth>
-					<InputLabel htmlFor="component-error">Phone Number</InputLabel>
-					<OutlinedInput
-						id="phone-number"
-						value={phoneNumber}
-						onChange={(e) => setPhoneNumber(e.target.value)}
-						label="Phone Number"
-					/>
-					{isPhoneNumberError && (
-						<FormHelperText id="component-error-text">
-							Please enter your pnhone number
-						</FormHelperText>
-					)}
-				</FormControl>
-			</Grid>
-			<Grid item xs={12}>
-				<FormControl error={isMessageError} fullWidth>
-					<InputLabel htmlFor="component-error">Message</InputLabel>
-					<OutlinedInput
-						id="message"
-						value={message}
-						onChange={(e) => setMessage(e.target.value)}
-						label="Message"
-						rows={4}
-						multiline
-					/>
-					{isMessageError && (
-						<FormHelperText id="component-error-text">
-							{`Please enter a brief description of what you'd like
+		<>
+			{emailWasSent ? (
+				<>
+					<h2>Thank you for your message.</h2>
+					<p>
+						A member of our team will reach out shortly to follow-up on your request and
+						start translating your request into reality.
+					</p>
+				</>
+			) : (
+				<Grid
+					container
+					spacing={2}
+					component="form"
+					noValidate
+					autoComplete="off"
+					onSubmit={handleSubmit}
+				>
+					<Grid item xs={12} md={6}>
+						<FormControl error={isFirstNameError} fullWidth>
+							<InputLabel htmlFor="component-error">First Name*</InputLabel>
+							<OutlinedInput
+								value={firstName}
+								onChange={(e) => setFirstName(e.target.value)}
+								label="First Name*"
+								id="firstName"
+								name="firstName"
+								autoComplete="given-name"
+							/>
+							{isFirstNameError && (
+								<FormHelperText id="component-error-text">
+									Please enter your first name
+								</FormHelperText>
+							)}
+						</FormControl>
+					</Grid>
+					<Grid item xs={12} md={6}>
+						<FormControl error={isLastNameError} fullWidth>
+							<InputLabel htmlFor="component-error">Last Name*</InputLabel>
+							<OutlinedInput
+								value={lastName}
+								onChange={(e) => setLastName(e.target.value)}
+								label="Last Name*"
+								id="lastName"
+								name="lastName"
+								autoComplete="family-name"
+							/>
+							{isLastNameError && (
+								<FormHelperText id="component-error-text">
+									Please enter your last name
+								</FormHelperText>
+							)}
+						</FormControl>
+					</Grid>
+					<Grid item xs={12} md={6}>
+						<FormControl error={isEmailError} fullWidth>
+							<InputLabel htmlFor="component-error">Email</InputLabel>
+							<OutlinedInput
+								value={email}
+								onChange={(e) => setEmail(e.target.value)}
+								label="Email"
+								id="email"
+								name="email"
+								autoComplete="email"
+							/>
+							{isEmailError && (
+								<FormHelperText id="component-error-text">
+									Please enter a valid email address
+								</FormHelperText>
+							)}
+						</FormControl>
+					</Grid>
+					<Grid item xs={12} md={6}>
+						<FormControl error={isPhoneNumberError} fullWidth>
+							<InputLabel htmlFor="component-error">Phone Number</InputLabel>
+							<OutlinedInput
+								id="phone-number"
+								value={phoneNumber}
+								onChange={(e) => setPhoneNumber(e.target.value)}
+								label="Phone Number"
+							/>
+							{isPhoneNumberError && (
+								<FormHelperText id="component-error-text">
+									Please enter your pnhone number
+								</FormHelperText>
+							)}
+						</FormControl>
+					</Grid>
+					<Grid item xs={12}>
+						<FormControl error={isMessageError} fullWidth>
+							<InputLabel htmlFor="component-error">Message</InputLabel>
+							<OutlinedInput
+								id="message"
+								value={message}
+								onChange={(e) => setMessage(e.target.value)}
+								label="Message"
+								rows={4}
+								multiline
+							/>
+							{isMessageError && (
+								<FormHelperText id="component-error-text">
+									{`Please enter a brief description of what you'd like
                             to talk about :)`}
-						</FormHelperText>
-					)}
-				</FormControl>
-			</Grid>
+								</FormHelperText>
+							)}
+						</FormControl>
+					</Grid>
 
-			<Grid item xs={12} sx={{ display: "flex", justifyContent: "right" }}>
-				<Button type="submit" variant={"contained"} size="small">
-					Submit
-				</Button>
-			</Grid>
-		</Grid>
+					<Grid item xs={12} sx={{ display: "flex", justifyContent: "right" }}>
+						<Button type="submit" variant={"contained"} size="small">
+							Submit
+						</Button>
+					</Grid>
+				</Grid>
+			)}
+		</>
 	);
 }
