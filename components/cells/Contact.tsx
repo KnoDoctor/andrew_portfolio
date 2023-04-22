@@ -34,6 +34,7 @@ const Contact = () => {
 									height: { xs: "400px", md: "100%" },
 									position: "relative",
 									margin: "auto",
+									minHeight: "320px",
 								}}
 							>
 								<Image
