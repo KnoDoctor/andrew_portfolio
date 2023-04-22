@@ -12,7 +12,9 @@ export default function Copyright() {
 				ab | DESIGNS {new Date().getFullYear()}
 			</Typography>
 			<Typography variant="body2" color="text.secondary" align="center">
-				<a href="/admin">Admin</a>
+				<a href="/admin" style={{ textDecoration: "none" }}>
+					Admin
+				</a>
 			</Typography>
 		</Box>
 	);
