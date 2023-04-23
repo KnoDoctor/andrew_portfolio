@@ -132,7 +132,7 @@ export default function Home() {
 						</Grid>
 					</Grid>
 				</SlideIn>
-				<Copyright />
+				{/* <Copyright /> */}
 			</Box>
 			{/* <Portfolio />
             <About />
