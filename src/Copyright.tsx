@@ -6,7 +6,7 @@ import { Box } from "@mui/material";
 
 export default function Copyright() {
 	return (
-		<Box sx={{ position: "absolute", bottom: "2vh" }}>
+		<Box sx={{ position: "absolute", bottom: "2vh", width: "100%" }}>
 			<Typography variant="body2" color="text.secondary" align="center">
 				{"Copyright © "}
 				ab | DESIGNS {new Date().getFullYear()}
